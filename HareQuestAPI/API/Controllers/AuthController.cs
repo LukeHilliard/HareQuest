@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Database;
@@ -21,20 +23,48 @@ namespace API.Controllers
     {
       _context = context;
     }
-    
+
     // POST: /api/Auth/register
     [HttpPost("register")]
-    public async Task<ActionResult<UserRegisterDro>> Login([FromBody] UserRegisterDro userDetails)
+    public async Task<ActionResult<UserRegisterDro>> Register([FromBody] UserRegisterDro userDetails)
     {
       Console.WriteLine(userDetails);
-      // TODO: Check if email already exists
+      var emailExists = _context.Users.Any(x => x.Email == userDetails.Email);
+      if (emailExists)
+      {
+        return BadRequest(new
+        {
+          status = 400,
+          message = "Email already exists"
+        });
+      }
       
-      // TODO: Hash password
+      // Password hashing followed here: https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-10.0
+      byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+      string hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+        password: userDetails.Password,
+        salt: salt,
+        prf: KeyDerivationPrf.HMACSHA1,
+        iterationCount: 10000,
+        numBytesRequested: 256 / 8
+      ));
+      
+      User newUser = new User
+      {
+        Id = Guid.NewGuid(),
+        Name = userDetails.Name,
+        Email = userDetails.Email,
+        Password = hashedPassword,
+        Salt = Convert.ToBase64String(salt),
+        Role = userDetails.Role,
+      };
+      _context.Users.Add(newUser);
+      await _context.SaveChangesAsync();
       
       // TODO: Generate token
-      
+
       // TODO: Return token
-      
+
       return Ok(new
       {
         status = 200,
@@ -42,19 +72,17 @@ namespace API.Controllers
         token = "",
       });
     }
-    
+
     // POST: /api/Auth/login
     [HttpPost("login")]
-    public async Task<ActionResult<UserLoginDto>> Register([FromBody] UserLoginDto userDetails)
+    public async Task<ActionResult<UserLoginDto>> Login([FromBody] UserLoginDto userDetails)
     {
-      
-      
       return Ok(new
       {
         status = 200,
         message = $"Hello From API!",
       });
     }
-    
+
   }
 }

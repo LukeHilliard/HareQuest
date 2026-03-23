@@ -27,7 +27,7 @@ class RegisterController: ObservableObject {
 	let apiService = ApiService()
 	
 	func registerNewUser() {
-		print("UI Values | \(name), \(email), \(password), \(role.rawValue)")
+//		print("UI Values | \(name), \(email), \(password), \(role.rawValue)")
 		
 		let requestBody = RegisterDto(name: name, email: email, password: password, role: role.rawValue)
 		

@@ -7,3 +7,4 @@
 - Manually pushing views to navigation stack - https://developer.apple.com/documentation/swiftui/view/navigationdestination(ispresented:destination:)
 - Convert struct to JSON - https://stackoverflow.com/questions/49119169/convert-swift-struct-to-json-string
 - JSON to struct - https://developer.apple.com/documentation/Foundation/JSONDecoder
+- Hashing PW - https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-10.0

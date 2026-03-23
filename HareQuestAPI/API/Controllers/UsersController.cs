@@ -78,14 +78,6 @@ namespace API.Controllers
     [HttpPost]
     public async Task<ActionResult<User>> PostUser(User user)
     {
-      
-      // TODO: Check if email already exists
-      
-      // TODO: Hash password
-      
-      // TODO: Generate token
-      
-      
       _context.Users.Add(user);
       await _context.SaveChangesAsync();
 
