@@ -1,2 +1,0 @@
-How to use Model View Controller MVC in iOS - https://www.youtube.com/watch?v=azFmaTZUy7k
-Architecture Series - Model View Controller (MVC) - https://www.radude89.com/blog/mvc.html
