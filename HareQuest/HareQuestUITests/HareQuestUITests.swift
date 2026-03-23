@@ -1,13 +1,13 @@
 //
-//  HareQuestMVCUITests.swift
-//  HareQuestMVCUITests
+//  HareQuestUITests.swift
+//  HareQuestUITests
 //
-//  Created by Luke Hilliard on 23/03/2026.
+//  Created by Luke Hilliard on 09/03/2026.
 //
 
 import XCTest
 
-final class HareQuestMVCUITests: XCTestCase {
+final class HareQuestUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
