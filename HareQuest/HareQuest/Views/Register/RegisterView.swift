@@ -44,9 +44,6 @@ struct RegisterView: View {
 					dismiss()
 				}.buttonStyle(.bordered)
 				
-				Button("Test getAllUsers") {
-					controller.getAllUsers()
-				}.buttonStyle(.bordered)
 			}
 			
 			Spacer()

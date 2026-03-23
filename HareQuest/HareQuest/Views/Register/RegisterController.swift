@@ -33,11 +33,18 @@ class RegisterController: ObservableObject {
 		
 		do {
 			let data = try JSONEncoder().encode(requestBody)
-			apiService.post(endpoint: "Users", body: data) { result in
+			apiService.post(endpoint: "Auth/register", body: data) { result in
 				switch result {
-					case .success:
-						print("Successfully registered user")
-						// TODO: navigate to home screen with logged in state
+					case .success(let data):
+						do {
+							let response = try JSONDecoder().decode(RegisterResponseDto.self, from: data)
+							print("Successfully registered user")
+							print(response)
+								// TODO: navigate to home screen with logged in state
+						} catch {
+							print("Decoding Error: \(error.localizedDescription)")
+						}
+					// TODO: navigate to home screen with logged in state
 					case .failure(let error):
 					print("ERROR: \(error.localizedDescription)")
 				}
@@ -47,21 +54,21 @@ class RegisterController: ObservableObject {
 		}
 	}
 	
-	func getAllUsers() {
-		apiService.get(endpoint: "Users") { result in
-			switch result {
-			case .success(let data):
-				do {
-					let users = try JSONDecoder().decode([User].self, from: data)
-					print(users)
-				} catch {
-					print("Decoding error: \(error.localizedDescription)")
-				}
-			case .failure(let error):
-				print("API Error: \(error.localizedDescription)")
-			}
-		}
-	}
+//	func getAllUsers() {
+//		apiService.get(endpoint: "Users") { result in
+//			switch result {
+//			case .success(let data):
+//				do {
+//					let users = try JSONDecoder().decode([User].self, from: data)
+//					print(users)
+//				} catch {
+//					print("Decoding error: \(error.localizedDescription)")
+//				}
+//			case .failure(let error):
+//				print("API Error: \(error.localizedDescription)")
+//			}
+//		}
+//	}
 	
 	func openLandingView() {
 		showLanding = true
