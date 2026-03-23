@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using API.Database;
 using API.Dtos;
 using API.Models;
+using JWT.Algorithms;
+using JWT.Builder;
 
 namespace API.Controllers
 {
@@ -18,10 +20,12 @@ namespace API.Controllers
   public class AuthController : ControllerBase
   {
     private readonly DatabaseContext _context;
+    private readonly IConfiguration _config;
 
-    public AuthController(DatabaseContext context)
+    public AuthController(DatabaseContext context, IConfiguration config)
     {
       _context = context;
+      _config = config;
     }
 
     // POST: /api/Auth/register
@@ -38,7 +42,7 @@ namespace API.Controllers
           message = "Email already exists"
         });
       }
-      
+
       // Password hashing followed here: https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-10.0
       byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
       string hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
@@ -48,7 +52,7 @@ namespace API.Controllers
         iterationCount: 10000,
         numBytesRequested: 256 / 8
       ));
-      
+
       User newUser = new User
       {
         Id = Guid.NewGuid(),
@@ -60,16 +64,24 @@ namespace API.Controllers
       };
       _context.Users.Add(newUser);
       await _context.SaveChangesAsync();
-      
-      // TODO: Generate token
 
+      // TODO: Generate token
+      var token = JwtBuilder.Create()
+        .WithAlgorithm(new HMACSHA256Algorithm())
+        .WithSecret(_config["Jwt:Key"])
+        .AddClaim("id", newUser.Id.ToString())
+        .AddClaim("role", userDetails.Role)
+        .AddClaim("expire", DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeSeconds())
+        .Encode();
+
+      Console.WriteLine(token);
       // TODO: Return token
 
       return Ok(new
       {
         status = 200,
         message = $"Hello From API!",
-        token = "",
+        accessToken = token,
       });
     }
 

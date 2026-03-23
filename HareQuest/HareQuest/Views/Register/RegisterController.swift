@@ -30,27 +30,30 @@ class RegisterController: ObservableObject {
 //		print("UI Values | \(name), \(email), \(password), \(role.rawValue)")
 		
 		let requestBody = RegisterDto(name: name, email: email, password: password, role: role.rawValue)
-		
-		do {
-			let data = try JSONEncoder().encode(requestBody)
-			apiService.post(endpoint: "Auth/register", body: data) { result in
-				switch result {
-					case .success(let data):
-						do {
-							let response = try JSONDecoder().decode(RegisterResponseDto.self, from: data)
-							print("Successfully registered user")
-							print(response)
-								// TODO: navigate to home screen with logged in state
-						} catch {
-							print("Decoding Error: \(error.localizedDescription)")
-						}
-					// TODO: navigate to home screen with logged in state
-					case .failure(let error):
-					print("ERROR: \(error.localizedDescription)")
+		if(name == "" || email == "" || password == "" || role.rawValue == "") {
+			print("Input Missing")
+		} else {
+			do {
+				let data = try JSONEncoder().encode(requestBody)
+				apiService.post(endpoint: "Auth/register", body: data) { result in
+					switch result {
+						case .success(let data):
+							do {
+								let response = try JSONDecoder().decode(RegisterResponseDto.self, from: data)
+								print("Successfully registered user")
+								print(response)
+									// TODO: navigate to home screen with logged in state
+							} catch {
+								print("Decoding Error: \(error.localizedDescription)")
+							}
+						// TODO: navigate to home screen with logged in state
+						case .failure(let error):
+						print("ERROR: \(error.localizedDescription)")
+					}
 				}
+			} catch {
+				print("Encoding Error: \(error.localizedDescription)")
 			}
-		} catch {
-			print("Encoding Error: \(error.localizedDescription)")
 		}
 	}
 	

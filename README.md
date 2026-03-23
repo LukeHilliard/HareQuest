@@ -8,3 +8,5 @@
 - Convert struct to JSON - https://stackoverflow.com/questions/49119169/convert-swift-struct-to-json-string
 - JSON to struct - https://developer.apple.com/documentation/Foundation/JSONDecoder
 - Hashing PW - https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-10.0
+- JWT in .NET - https://github.com/jwt-dotnet/jwt?tab=readme-ov-file#jwtnet, https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-10.0&tabs=linux
+- Secret Generator - https://jwtsecrets.com/#generator
