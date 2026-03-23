@@ -6,68 +6,76 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		945EDA502F713B95002A6856 /* references.txt in Resources */ = {isa = PBXBuildFile; fileRef = 945EDA4F2F713B8D002A6856 /* references.txt */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
-		949ED97B2F5F4E8D00A4EAB0 /* PBXContainerItemProxy */ = {
+		945EDAAD2F7144FB002A6856 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 949ED9632F5F4E8B00A4EAB0 /* Project object */;
+			containerPortal = 945EDA8B2F7144FA002A6856 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 949ED96A2F5F4E8B00A4EAB0;
-			remoteInfo = HareQuest;
+			remoteGlobalIDString = 945EDA922F7144FA002A6856;
+			remoteInfo = HareQuestMVC;
 		};
-		949ED9852F5F4E8D00A4EAB0 /* PBXContainerItemProxy */ = {
+		945EDAB72F7144FB002A6856 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 949ED9632F5F4E8B00A4EAB0 /* Project object */;
+			containerPortal = 945EDA8B2F7144FA002A6856 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 949ED96A2F5F4E8B00A4EAB0;
-			remoteInfo = HareQuest;
+			remoteGlobalIDString = 945EDA922F7144FA002A6856;
+			remoteInfo = HareQuestMVC;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		945EDA4F2F713B8D002A6856 /* references.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = references.txt; sourceTree = "<group>"; };
-		949ED96B2F5F4E8B00A4EAB0 /* HareQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HareQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		949ED97A2F5F4E8D00A4EAB0 /* HareQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HareQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		949ED9842F5F4E8D00A4EAB0 /* HareQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HareQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		945EDA932F7144FA002A6856 /* HareQuestMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HareQuestMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		945EDAAC2F7144FB002A6856 /* HareQuestMVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HareQuestMVCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		945EDAB62F7144FB002A6856 /* HareQuestMVCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HareQuestMVCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		945EDABE2F7144FB002A6856 /* Exceptions for "HareQuestMVC" folder in "HareQuestMVC" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 945EDA922F7144FA002A6856 /* HareQuestMVC */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		949ED96D2F5F4E8B00A4EAB0 /* HareQuest */ = {
+		945EDA952F7144FA002A6856 /* HareQuestMVC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HareQuest;
+			exceptions = (
+				945EDABE2F7144FB002A6856 /* Exceptions for "HareQuestMVC" folder in "HareQuestMVC" target */,
+			);
+			path = HareQuestMVC;
 			sourceTree = "<group>";
 		};
-		949ED97D2F5F4E8D00A4EAB0 /* HareQuestTests */ = {
+		945EDAAF2F7144FB002A6856 /* HareQuestMVCTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HareQuestTests;
+			path = HareQuestMVCTests;
 			sourceTree = "<group>";
 		};
-		949ED9872F5F4E8D00A4EAB0 /* HareQuestUITests */ = {
+		945EDAB92F7144FB002A6856 /* HareQuestMVCUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HareQuestUITests;
+			path = HareQuestMVCUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		949ED9682F5F4E8B00A4EAB0 /* Frameworks */ = {
+		945EDA902F7144FA002A6856 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949ED9772F5F4E8D00A4EAB0 /* Frameworks */ = {
+		945EDAA92F7144FB002A6856 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949ED9812F5F4E8D00A4EAB0 /* Frameworks */ = {
+		945EDAB32F7144FB002A6856 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,23 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		949ED9622F5F4E8B00A4EAB0 = {
+		945EDA8A2F7144FA002A6856 = {
 			isa = PBXGroup;
 			children = (
-				945EDA4F2F713B8D002A6856 /* references.txt */,
-				949ED96D2F5F4E8B00A4EAB0 /* HareQuest */,
-				949ED97D2F5F4E8D00A4EAB0 /* HareQuestTests */,
-				949ED9872F5F4E8D00A4EAB0 /* HareQuestUITests */,
-				949ED96C2F5F4E8B00A4EAB0 /* Products */,
+				945EDA952F7144FA002A6856 /* HareQuestMVC */,
+				945EDAAF2F7144FB002A6856 /* HareQuestMVCTests */,
+				945EDAB92F7144FB002A6856 /* HareQuestMVCUITests */,
+				945EDA942F7144FA002A6856 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		949ED96C2F5F4E8B00A4EAB0 /* Products */ = {
+		945EDA942F7144FA002A6856 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				949ED96B2F5F4E8B00A4EAB0 /* HareQuest.app */,
-				949ED97A2F5F4E8D00A4EAB0 /* HareQuestTests.xctest */,
-				949ED9842F5F4E8D00A4EAB0 /* HareQuestUITests.xctest */,
+				945EDA932F7144FA002A6856 /* HareQuestMVC.app */,
+				945EDAAC2F7144FB002A6856 /* HareQuestMVCTests.xctest */,
+				945EDAB62F7144FB002A6856 /* HareQuestMVCUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,135 +108,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		949ED96A2F5F4E8B00A4EAB0 /* HareQuest */ = {
+		945EDA922F7144FA002A6856 /* HareQuestMVC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 949ED98E2F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuest" */;
+			buildConfigurationList = 945EDABF2F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVC" */;
 			buildPhases = (
-				949ED9672F5F4E8B00A4EAB0 /* Sources */,
-				949ED9682F5F4E8B00A4EAB0 /* Frameworks */,
-				949ED9692F5F4E8B00A4EAB0 /* Resources */,
+				945EDA8F2F7144FA002A6856 /* Sources */,
+				945EDA902F7144FA002A6856 /* Frameworks */,
+				945EDA912F7144FA002A6856 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				949ED96D2F5F4E8B00A4EAB0 /* HareQuest */,
+				945EDA952F7144FA002A6856 /* HareQuestMVC */,
 			);
-			name = HareQuest;
+			name = HareQuestMVC;
 			packageProductDependencies = (
 			);
-			productName = HareQuest;
-			productReference = 949ED96B2F5F4E8B00A4EAB0 /* HareQuest.app */;
+			productName = HareQuestMVC;
+			productReference = 945EDA932F7144FA002A6856 /* HareQuestMVC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		949ED9792F5F4E8D00A4EAB0 /* HareQuestTests */ = {
+		945EDAAB2F7144FB002A6856 /* HareQuestMVCTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 949ED9912F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuestTests" */;
+			buildConfigurationList = 945EDAC42F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVCTests" */;
 			buildPhases = (
-				949ED9762F5F4E8D00A4EAB0 /* Sources */,
-				949ED9772F5F4E8D00A4EAB0 /* Frameworks */,
-				949ED9782F5F4E8D00A4EAB0 /* Resources */,
+				945EDAA82F7144FB002A6856 /* Sources */,
+				945EDAA92F7144FB002A6856 /* Frameworks */,
+				945EDAAA2F7144FB002A6856 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				949ED97C2F5F4E8D00A4EAB0 /* PBXTargetDependency */,
+				945EDAAE2F7144FB002A6856 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				949ED97D2F5F4E8D00A4EAB0 /* HareQuestTests */,
+				945EDAAF2F7144FB002A6856 /* HareQuestMVCTests */,
 			);
-			name = HareQuestTests;
+			name = HareQuestMVCTests;
 			packageProductDependencies = (
 			);
-			productName = HareQuestTests;
-			productReference = 949ED97A2F5F4E8D00A4EAB0 /* HareQuestTests.xctest */;
+			productName = HareQuestMVCTests;
+			productReference = 945EDAAC2F7144FB002A6856 /* HareQuestMVCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		949ED9832F5F4E8D00A4EAB0 /* HareQuestUITests */ = {
+		945EDAB52F7144FB002A6856 /* HareQuestMVCUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 949ED9942F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuestUITests" */;
+			buildConfigurationList = 945EDAC72F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVCUITests" */;
 			buildPhases = (
-				949ED9802F5F4E8D00A4EAB0 /* Sources */,
-				949ED9812F5F4E8D00A4EAB0 /* Frameworks */,
-				949ED9822F5F4E8D00A4EAB0 /* Resources */,
+				945EDAB22F7144FB002A6856 /* Sources */,
+				945EDAB32F7144FB002A6856 /* Frameworks */,
+				945EDAB42F7144FB002A6856 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				949ED9862F5F4E8D00A4EAB0 /* PBXTargetDependency */,
+				945EDAB82F7144FB002A6856 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				949ED9872F5F4E8D00A4EAB0 /* HareQuestUITests */,
+				945EDAB92F7144FB002A6856 /* HareQuestMVCUITests */,
 			);
-			name = HareQuestUITests;
+			name = HareQuestMVCUITests;
 			packageProductDependencies = (
 			);
-			productName = HareQuestUITests;
-			productReference = 949ED9842F5F4E8D00A4EAB0 /* HareQuestUITests.xctest */;
+			productName = HareQuestMVCUITests;
+			productReference = 945EDAB62F7144FB002A6856 /* HareQuestMVCUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		949ED9632F5F4E8B00A4EAB0 /* Project object */ = {
+		945EDA8B2F7144FA002A6856 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
-					949ED96A2F5F4E8B00A4EAB0 = {
+					945EDA922F7144FA002A6856 = {
 						CreatedOnToolsVersion = 26.3;
 					};
-					949ED9792F5F4E8D00A4EAB0 = {
+					945EDAAB2F7144FB002A6856 = {
 						CreatedOnToolsVersion = 26.3;
-						TestTargetID = 949ED96A2F5F4E8B00A4EAB0;
+						TestTargetID = 945EDA922F7144FA002A6856;
 					};
-					949ED9832F5F4E8D00A4EAB0 = {
+					945EDAB52F7144FB002A6856 = {
 						CreatedOnToolsVersion = 26.3;
-						TestTargetID = 949ED96A2F5F4E8B00A4EAB0;
+						TestTargetID = 945EDA922F7144FA002A6856;
 					};
 				};
 			};
-			buildConfigurationList = 949ED9662F5F4E8B00A4EAB0 /* Build configuration list for PBXProject "HareQuest" */;
+			buildConfigurationList = 945EDA8E2F7144FA002A6856 /* Build configuration list for PBXProject "HareQuestMVC" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 949ED9622F5F4E8B00A4EAB0;
+			mainGroup = 945EDA8A2F7144FA002A6856;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 949ED96C2F5F4E8B00A4EAB0 /* Products */;
+			productRefGroup = 945EDA942F7144FA002A6856 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				949ED96A2F5F4E8B00A4EAB0 /* HareQuest */,
-				949ED9792F5F4E8D00A4EAB0 /* HareQuestTests */,
-				949ED9832F5F4E8D00A4EAB0 /* HareQuestUITests */,
+				945EDA922F7144FA002A6856 /* HareQuestMVC */,
+				945EDAAB2F7144FB002A6856 /* HareQuestMVCTests */,
+				945EDAB52F7144FB002A6856 /* HareQuestMVCUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		949ED9692F5F4E8B00A4EAB0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				945EDA502F713B95002A6856 /* references.txt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		949ED9782F5F4E8D00A4EAB0 /* Resources */ = {
+		945EDA912F7144FA002A6856 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949ED9822F5F4E8D00A4EAB0 /* Resources */ = {
+		945EDAAA2F7144FB002A6856 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		945EDAB42F7144FB002A6856 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,21 +245,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		949ED9672F5F4E8B00A4EAB0 /* Sources */ = {
+		945EDA8F2F7144FA002A6856 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949ED9762F5F4E8D00A4EAB0 /* Sources */ = {
+		945EDAA82F7144FB002A6856 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949ED9802F5F4E8D00A4EAB0 /* Sources */ = {
+		945EDAB22F7144FB002A6856 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,20 +269,82 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		949ED97C2F5F4E8D00A4EAB0 /* PBXTargetDependency */ = {
+		945EDAAE2F7144FB002A6856 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 949ED96A2F5F4E8B00A4EAB0 /* HareQuest */;
-			targetProxy = 949ED97B2F5F4E8D00A4EAB0 /* PBXContainerItemProxy */;
+			target = 945EDA922F7144FA002A6856 /* HareQuestMVC */;
+			targetProxy = 945EDAAD2F7144FB002A6856 /* PBXContainerItemProxy */;
 		};
-		949ED9862F5F4E8D00A4EAB0 /* PBXTargetDependency */ = {
+		945EDAB82F7144FB002A6856 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 949ED96A2F5F4E8B00A4EAB0 /* HareQuest */;
-			targetProxy = 949ED9852F5F4E8D00A4EAB0 /* PBXContainerItemProxy */;
+			target = 945EDA922F7144FA002A6856 /* HareQuestMVC */;
+			targetProxy = 945EDAB72F7144FB002A6856 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		949ED98C2F5F4E8D00A4EAB0 /* Debug */ = {
+		945EDAC02F7144FB002A6856 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HareQuestMVC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		945EDAC12F7144FB002A6856 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HareQuestMVC/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		945EDAC22F7144FB002A6856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -339,7 +407,7 @@
 			};
 			name = Debug;
 		};
-		949ED98D2F5F4E8D00A4EAB0 /* Release */ = {
+		945EDAC32F7144FB002A6856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -395,69 +463,7 @@
 			};
 			name = Release;
 		};
-		949ED98F2F5F4E8D00A4EAB0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		949ED9902F5F4E8D00A4EAB0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		949ED9922F5F4E8D00A4EAB0 /* Debug */ = {
+		945EDAC52F7144FB002A6856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -466,7 +472,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -474,11 +480,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HareQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HareQuest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HareQuestMVC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HareQuestMVC";
 			};
 			name = Debug;
 		};
-		949ED9932F5F4E8D00A4EAB0 /* Release */ = {
+		945EDAC62F7144FB002A6856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,7 +493,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -495,18 +501,18 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HareQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HareQuest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HareQuestMVC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HareQuestMVC";
 			};
 			name = Release;
 		};
-		949ED9952F5F4E8D00A4EAB0 /* Debug */ = {
+		945EDAC82F7144FB002A6856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -514,18 +520,18 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HareQuest;
+				TEST_TARGET_NAME = HareQuestMVC;
 			};
 			name = Debug;
 		};
-		949ED9962F5F4E8D00A4EAB0 /* Release */ = {
+		945EDAC92F7144FB002A6856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobileca2.HareQuestMVCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -533,50 +539,50 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HareQuest;
+				TEST_TARGET_NAME = HareQuestMVC;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		949ED9662F5F4E8B00A4EAB0 /* Build configuration list for PBXProject "HareQuest" */ = {
+		945EDA8E2F7144FA002A6856 /* Build configuration list for PBXProject "HareQuestMVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				949ED98C2F5F4E8D00A4EAB0 /* Debug */,
-				949ED98D2F5F4E8D00A4EAB0 /* Release */,
+				945EDAC22F7144FB002A6856 /* Debug */,
+				945EDAC32F7144FB002A6856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		949ED98E2F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuest" */ = {
+		945EDABF2F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				949ED98F2F5F4E8D00A4EAB0 /* Debug */,
-				949ED9902F5F4E8D00A4EAB0 /* Release */,
+				945EDAC02F7144FB002A6856 /* Debug */,
+				945EDAC12F7144FB002A6856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		949ED9912F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuestTests" */ = {
+		945EDAC42F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVCTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				949ED9922F5F4E8D00A4EAB0 /* Debug */,
-				949ED9932F5F4E8D00A4EAB0 /* Release */,
+				945EDAC52F7144FB002A6856 /* Debug */,
+				945EDAC62F7144FB002A6856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		949ED9942F5F4E8D00A4EAB0 /* Build configuration list for PBXNativeTarget "HareQuestUITests" */ = {
+		945EDAC72F7144FB002A6856 /* Build configuration list for PBXNativeTarget "HareQuestMVCUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				949ED9952F5F4E8D00A4EAB0 /* Debug */,
-				949ED9962F5F4E8D00A4EAB0 /* Release */,
+				945EDAC82F7144FB002A6856 /* Debug */,
+				945EDAC92F7144FB002A6856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 949ED9632F5F4E8B00A4EAB0 /* Project object */;
+	rootObject = 945EDA8B2F7144FA002A6856 /* Project object */;
 }

@@ -106,3 +106,4 @@ class ApiService {
 		sendRequest(request, completion: completion)
 	}
 }
+

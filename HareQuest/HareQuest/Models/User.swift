@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class User: {
+class User {
 	var id: UUID
 	var name: String
 	var email: String
@@ -22,3 +22,4 @@ class User: {
 		self.role = role
 	}
 }
+

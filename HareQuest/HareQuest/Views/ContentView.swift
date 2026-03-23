@@ -5,14 +5,14 @@
 //  Created by Luke Hilliard on 09/03/2026.
 //
 
-import SwiftUI
+import UIKit
 import SwiftData
 
-struct ContentView: View {
+class ContentView: UIView {
 //    @Environment(\.modelContext) private var modelContext
 
-    var body: some View {
-       
+    var body: some UIView {
+       TestView()
     }
 }
 
