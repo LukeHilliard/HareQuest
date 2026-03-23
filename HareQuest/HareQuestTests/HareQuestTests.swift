@@ -1,14 +1,14 @@
 //
-//  HareQuestMVCTests.swift
-//  HareQuestMVCTests
+//  HareQuestTests.swift
+//  HareQuestTests
 //
-//  Created by Luke Hilliard on 23/03/2026.
+//  Created by Luke Hilliard on 09/03/2026.
 //
 
 import Testing
-@testable import HareQuestMVC
+@testable import HareQuest
 
-struct HareQuestMVCTests {
+struct HareQuestTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

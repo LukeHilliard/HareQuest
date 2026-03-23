@@ -1,13 +1,13 @@
 //
-//  HareQuestMVCUITestsLaunchTests.swift
-//  HareQuestMVCUITests
+//  HareQuestUITestsLaunchTests.swift
+//  HareQuestUITests
 //
-//  Created by Luke Hilliard on 23/03/2026.
+//  Created by Luke Hilliard on 09/03/2026.
 //
 
 import XCTest
 
-final class HareQuestMVCUITestsLaunchTests: XCTestCase {
+final class HareQuestUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
