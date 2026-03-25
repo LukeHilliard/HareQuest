@@ -47,18 +47,6 @@ struct RegisterView: View {
 				}
 			}.navigationDestination(isPresented: $controller.isRegistered) { LoginView() }
 			
-			HStack {
-				Button("Register") {
-					// TODO: Implement controller logic
-					controller.registerNewUser()
-				}.buttonStyle(.bordered)
-				
-				Button("Return") {
-					dismiss()
-				}.buttonStyle(.bordered)
-				
-			}
-			
 			Spacer()
 		}.navigationBarBackButtonHidden(true)
 	

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+	@StateObject private var controller = HomeController()
     var body: some View {
-			Text("Home")
+			Text(controller.acessToken ?? "No Token")
     }
 }
 

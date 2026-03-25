@@ -10,3 +10,5 @@
 - Hashing PW - https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-10.0
 - JWT in .NET - https://github.com/jwt-dotnet/jwt?tab=readme-ov-file#jwtnet, https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-10.0&tabs=linux
 - Secret Generator - https://jwtsecrets.com/#generator
+- Using KeychainSwift - https://www.youtube.com/watch?v=NCREPNvFpjk&t=39s
+- Storing token to Keychain - https://workos.com/blog/secure-jwt-storage#:~:text=Storing%20JWT%20in%20iOS&text=First%2C%20you%20need%20to%20import,set%20up%20the%20Keychain%20wrapper.&text=Then%2C%20create%20a%20Keychain%20helper,complexity%20of%20using%20the%20Keychain.&text=Once%20you%20have%20the%20KeychainHelper,delete%20the%20JWT%20token%20securely.

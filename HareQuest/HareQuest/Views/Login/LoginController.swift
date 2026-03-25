@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import Combine
+import KeychainSwift
+
 class LoginController: ObservableObject {
 	
 	@Published var email: String = ""
@@ -16,6 +18,8 @@ class LoginController: ObservableObject {
 	@Published var isLoggedIn: Bool = false
 	
 	let apiService = ApiService()
+	let keychain = KeychainSwift()
+	
 	// TODO: Implement user login, UserDefaults, Keychain
 	func LoginUser() {
 		let requestBody = LoginDto(email: email, password: password)
@@ -29,7 +33,8 @@ class LoginController: ObservableObject {
 							print("Successfully registered user")
 							print(response)
 							
-							// TODO: add token to keychain
+							/// Add details to keychain
+							self.keychain.set(response.accessToken ?? "", forKey: "hq_token")
 							DispatchQueue.main.async {
 								self.isLoggedIn = true
 							}

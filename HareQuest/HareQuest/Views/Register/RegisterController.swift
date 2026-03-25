@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
+
 class RegisterController: ObservableObject {
 	enum Role: String, Hashable, CaseIterable {
 		case parent = "Parent" /// default
@@ -22,22 +23,21 @@ class RegisterController: ObservableObject {
 	@Published var password: String = ""
 	@Published var role: Role = .parent
 
+	
+	/// Navigation elements
 	@Published var isRegistered: Bool = false
-
-	
-	/// Navigation elements
 	@Published var showLanding: Bool = false
 	
-	/// Navigation elements
-	@Published var showLanding: Bool = false
+	
 	let apiService = ApiService()
+
 	
 	func registerNewUser() {
 		let requestBody = RegisterDto(name: name, email: email, password: password, role: role.rawValue)
 		print(requestBody)
 		
 		// TODO: Handle empty input boxes
-		if(name == "" || email == "" || password == "" || role.rawValue == "") {
+		if(name == "" || email == "" || password == "") {
 			print("Input Missing")
 		} else {
 			do {
@@ -47,8 +47,10 @@ class RegisterController: ObservableObject {
 						case .success(let data):
 							do {
 								let response = try JSONDecoder().decode(RegisterResponseDto.self, from: data)
+
 								print("Successfully registered user")
 								print(response)
+								
 								DispatchQueue.main.async {
 									self.isRegistered = true
 								}
