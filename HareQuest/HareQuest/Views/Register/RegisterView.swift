@@ -28,17 +28,20 @@ struct RegisterView: View {
 					Text(role.rawValue)
 				}
 			}.buttonStyle(.bordered)
+
+			NavigationStack {
+				HStack {
+					Button("Register") {
+						// TODO: Implement controller logic
+						controller.registerNewUser()
+					}.buttonStyle(.bordered)
+					
+					Button("Return") {
+						dismiss()
+					}.buttonStyle(.bordered)
+				}
+			}.navigationDestination(isPresented: $controller.isRegistered) { LoginView() }
 			
-			HStack {
-				Button("Login") {
-					// TODO: Implement controller logic
-					controller.registerNewUser()
-				}.buttonStyle(.bordered)
-				
-				Button("Return") {
-					controller.openLandingView()
-				}.buttonStyle(.bordered)
-			}.navigationDestination(isPresented: $controller.showLanding) { LandingView() }
 			
 			Spacer()
 		}.navigationBarBackButtonHidden(true)

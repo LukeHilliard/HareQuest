@@ -9,14 +9,43 @@ import Foundation
 import SwiftUI
 import Combine
 class LoginController: ObservableObject {
-
+	
 	@Published var email: String = ""
 	@Published var password: String = ""
 	@Published var showLanding: Bool = false
+	@Published var isLoggedIn: Bool = false
 	
+	let apiService = ApiService()
 	// TODO: Implement user login, UserDefaults, Keychain
 	func LoginUser() {
-		
+		let requestBody = LoginDto(email: email, password: password)
+		do {
+			let data = try JSONEncoder().encode(requestBody)
+			apiService.post(endpoint: "Auth/login", body: data) { result in
+				switch result {
+					case .success(let data):
+						do {
+							let response = try JSONDecoder().decode(RegisterResponseDto.self, from: data)
+							print("Successfully registered user")
+							print(response)
+							
+							// TODO: add token to keychain
+							DispatchQueue.main.async {
+								self.isLoggedIn = true
+							}
+							
+						} catch {
+							print("Decoding Error: \(error.localizedDescription)")
+						}
+					case .failure(let error):
+						// TODO: Figure out how to decode error returned from API
+						print("Failed to register user")
+						print("ERROR: \(error.localizedDescription)")
+				}
+			}
+		} catch {
+			print("Encoding Error: \(error.localizedDescription)")
+		}
 	}
 	
 	func openLandingView() {

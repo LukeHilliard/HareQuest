@@ -23,18 +23,19 @@ struct LoginView: View {
 			SecureField("Password", text: $controller.password)
 							.textFieldStyle(.roundedBorder)
 			
-			HStack {
-				Button("Login") {
-					// TODO: Implement controller logic
-					controller.LoginUser()
-				}.buttonStyle(.bordered)
-				
-				Button("Return") {
-					controller.openLandingView()
+			NavigationStack {
+				HStack {
+					Button("Login") {
+						// TODO: Implement controller logic
+						controller.LoginUser()
+					}.buttonStyle(.bordered)
+					
+					Button("Return") {
+						dismiss()
+					}
 				}
-			}.navigationDestination(isPresented: $controller.showLanding) { LandingView() }
-			
-			
+			}.navigationDestination(isPresented: $controller.isLoggedIn) { HomeView() }
+
 			Spacer()
 		}.navigationBarBackButtonHidden(true)
 		
