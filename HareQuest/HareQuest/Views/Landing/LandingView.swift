@@ -20,7 +20,6 @@ struct LandingView: View {
 					controller.openRegisterView()
 				}.buttonStyle(.bordered)
 			}
-			
 			.navigationDestination(isPresented: $controller.showLogin) { LoginView() }
 			.navigationDestination(isPresented: $controller.showRegister) { RegisterView() }
 			

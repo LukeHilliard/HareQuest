@@ -64,37 +64,73 @@ namespace API.Controllers
       };
       _context.Users.Add(newUser);
       await _context.SaveChangesAsync();
-
-      // TODO: Generate token
-      var token = JwtBuilder.Create()
-        .WithAlgorithm(new HMACSHA256Algorithm())
-        .WithSecret(_config["Jwt:Key"])
-        .AddClaim("id", newUser.Id.ToString())
-        .AddClaim("role", userDetails.Role)
-        .AddClaim("expire", DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeSeconds())
-        .Encode();
-
-      Console.WriteLine(token);
-      // TODO: Return token
+      
+      
 
       return Ok(new
       {
         status = 200,
-        message = $"Hello From API!",
-        accessToken = token,
+        message = $"User {newUser.Id} Registered successfully"
       });
     }
 
     // POST: /api/Auth/login
     [HttpPost("login")]
-    public async Task<ActionResult<UserLoginDto>> Login([FromBody] UserLoginDto userDetails)
+    public async Task<ActionResult<UserLoginDto>> Login([FromBody] UserLoginDto loginDetails)
     {
+      
+      var user =  await _context.Users.FirstOrDefaultAsync(x => x.Email == loginDetails.Email);
+
+      // Check email
+      if (user == null)
+      {
+        return BadRequest(new
+        {
+          status = 400,
+          message = "Email does not exists"
+        });
+      }
+      
+      string hashToCheck = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+        password: loginDetails.Password,
+        salt: Convert.FromBase64String(user.Salt),
+        prf: KeyDerivationPrf.HMACSHA1,
+        iterationCount: 10000,
+        numBytesRequested: 256 / 8
+      ));
+      Console.WriteLine(hashToCheck);
+      Console.WriteLine(user.Password);
+      // Check password
+      if (hashToCheck != user.Password)
+      {
+        return BadRequest(new
+        {
+          status = 400,
+          message = "Passwords do not match"
+        });
+      }
+      
+      // Generate token
+      var token = JwtBuilder.Create()
+        .WithAlgorithm(new HMACSHA256Algorithm())
+        .WithSecret(_config["Jwt:Key"])
+        .AddClaim("id", user.Id.ToString())
+        .AddClaim("role", user.Role)
+        .AddClaim("expire", DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeSeconds())
+        .Encode();
+      
       return Ok(new
       {
         status = 200,
-        message = $"Hello From API!",
+        accessToken = token,
+        message = $"User {user.Id} Logged In"
       });
     }
+    
+    
+    // TODO: Write helper functions to hash, validate password
+    
+    
 
   }
 }

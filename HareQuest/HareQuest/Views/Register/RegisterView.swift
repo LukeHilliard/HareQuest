@@ -33,18 +33,19 @@ struct RegisterView: View {
 					Text(role.rawValue)
 				}
 			}.buttonStyle(.bordered)
-			
-			HStack {
-				Button("Register") {
-					// TODO: Implement controller logic
-					controller.registerNewUser()
-				}.buttonStyle(.bordered)
-				
-				Button("Return") {
-					dismiss()
-				}.buttonStyle(.bordered)
-				
-			}
+
+			NavigationStack {
+				HStack {
+					Button("Register") {
+						// TODO: Implement controller logic
+						controller.registerNewUser()
+					}.buttonStyle(.bordered)
+					
+					Button("Return") {
+						dismiss()
+					}.buttonStyle(.bordered)
+				}
+			}.navigationDestination(isPresented: $controller.isRegistered) { LoginView() }
 			
 			Spacer()
 		}.navigationBarBackButtonHidden(true)

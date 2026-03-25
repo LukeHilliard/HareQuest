@@ -8,6 +8,7 @@ CREATE TABLE Users
     Password VARCHAR(255) NOT NULL,
     Salt     VARCHAR(255) NOT NULL,
     Role     VARCHAR(8)   NOT NULL,
+    
 
     PRIMARY KEY (Id)
 );
