@@ -15,8 +15,10 @@ struct RegisterDto: Codable {
 	let role: String
 }
 
+// TODO: Implement token
 struct RegisterResponseDto: Codable {
 	let message: String?
 	let userId: UUID?
 	let success: Bool?
+	let accessToken: String?
 }

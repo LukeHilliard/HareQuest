@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
 	@StateObject private var controller = LoginController()
+	@Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
 	var body: some View {
 		VStack {
 			Text("Login")

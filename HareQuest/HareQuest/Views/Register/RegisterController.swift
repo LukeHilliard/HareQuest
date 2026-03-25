@@ -16,6 +16,7 @@ class RegisterController: ObservableObject {
 		case student = "Student"
 	}
 	
+	/// Input elements
 	@Published var name: String = ""
 	@Published var email: String = ""
 	@Published var password: String = ""
@@ -27,6 +28,9 @@ class RegisterController: ObservableObject {
 	/// Navigation elements
 	@Published var showLanding: Bool = false
 	
+	/// Navigation elements
+	@Published var showLanding: Bool = false
+	let apiService = ApiService()
 	
 	func registerNewUser() {
 		let requestBody = RegisterDto(name: name, email: email, password: password, role: role.rawValue)
@@ -62,6 +66,22 @@ class RegisterController: ObservableObject {
 			}
 		}
 	}
+	
+//	func getAllUsers() {
+//		apiService.get(endpoint: "Users") { result in
+//			switch result {
+//			case .success(let data):
+//				do {
+//					let users = try JSONDecoder().decode([User].self, from: data)
+//					print(users)
+//				} catch {
+//					print("Decoding error: \(error.localizedDescription)")
+//				}
+//			case .failure(let error):
+//				print("API Error: \(error.localizedDescription)")
+//			}
+//		}
+//	}
 	
 	func openLandingView() {
 		showLanding = true
