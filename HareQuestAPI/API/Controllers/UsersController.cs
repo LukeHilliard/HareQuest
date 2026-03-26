@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Database;
 using API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class UsersController : ControllerBase
@@ -22,6 +24,7 @@ namespace API.Controllers
     }
 
     // GET: api/Users
+    
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetUsers()
     {
@@ -29,6 +32,7 @@ namespace API.Controllers
     }
 
     // GET: api/Users/5
+    
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetUser(Guid id)
     {

@@ -7,9 +7,11 @@
 //
 // Api Service layer followed here: https://medium.com/@bhavesh.sachala/building-a-versatile-network-layer-in-swiftui-with-apiservice-11fe7ec278fc
 import Foundation
+import KeychainSwift
 
 class ApiService {
 	private let baseUrl = "http://localhost:5092/api/"
+	let keychain = KeychainSwift()
 	
 	public init() {}
 	
@@ -20,15 +22,18 @@ class ApiService {
 	
 	/// Placeholder for access token
 	private func accessToken() -> String {
-		return "" //TODO: Implement access token
+		guard let token = keychain.get("hq_token") else {
+			print("No token")
+			return "no-token"
+		}
+		return token
 	}
 	
 	/// Contruct HTTP Headers
 	private func headers() -> [String: String] {
 		return [
 			"Content-Type": "application/json",
-			// TODO: uncomment when access token implemented
-//			"Authorization": "Bearer \(accessToken())"
+			"Authorization": "Bearer \(accessToken())"
 		]
 	}
 	

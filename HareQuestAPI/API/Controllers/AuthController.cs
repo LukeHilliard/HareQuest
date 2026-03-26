@@ -114,9 +114,9 @@ namespace API.Controllers
       var token = JwtBuilder.Create()
         .WithAlgorithm(new HMACSHA256Algorithm())
         .WithSecret(_config["Jwt:Key"])
-        .AddClaim("id", user.Id.ToString())
+        .AddClaim("sub", user.Id.ToString())
         .AddClaim("role", user.Role)
-        .AddClaim("expire", DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeSeconds())
+        .AddClaim("exp", DateTimeOffset.UtcNow.AddMinutes(30).ToUnixTimeSeconds())
         .Encode();
       
       return Ok(new

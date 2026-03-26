@@ -11,6 +11,8 @@ struct HomeView: View {
 	@StateObject private var controller = HomeController()
     var body: some View {
 			Text(controller.acessToken ?? "No Token")
+			
+		
     }
 }
 
