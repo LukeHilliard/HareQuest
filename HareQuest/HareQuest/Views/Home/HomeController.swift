@@ -11,52 +11,16 @@ import Combine
 import KeychainSwift
 
 class HomeController: ObservableObject {
-	enum HomeRoute: Hashable {
-		case parentsCorner
 
+	/// Tab state
+	enum HomeTabs: Int {
+		case parentsCorner = 0
+		case activities = 1
+		case profile = 2
 	}
+	@Published var selectedTab: HomeTabs = .activities
 	
-	@Published var currentRoute: HomeRoute?
 	let keychain = KeychainSwift()
 	let sessionManager = SessionManager.shared
-	
-	/// Navigation
-	func openParentsCornerView() { currentRoute = .parentsCorner }
-	
-	func logout() {
-		sessionManager.clear()
-	
-
-	}
-
-
-	
-//	func getAllUser() async throws -> [User] {
-//		let users = if keychain.get("hq_token") == "" {
-//			
-//		}
-//	}
-	
-	//	func getAllUsers() {
-	//		apiService.get(endpoint: "Users") { result in
-	//			switch result {
-	//			case .success(let data):
-	//				do {
-	//					let users = try JSONDecoder().decode([User].self, from: data)
-	//					print(users)
-	//				} catch {
-	//					print("Decoding error: \(error.localizedDescription)")
-	//				}
-	//			case .failure(let error):
-	//				print("API Error: \(error.localizedDescription)")
-	//			}
-	//		}
-	//	}
-	
-	
-	
-	
-	
-	
 	
 }

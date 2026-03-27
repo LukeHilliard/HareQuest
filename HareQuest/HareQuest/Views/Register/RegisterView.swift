@@ -46,16 +46,18 @@ struct RegisterView: View {
 					Button("Return") {
 						dismiss()
 					}.buttonStyle(.bordered)
-				}.navigationDestination(item: $controller.currentRoute) { route in
-					switch route {
-						case .login:
-							LoginView()
-						case .landing:
-							LandingView()
-					}
 				}
 			Spacer()
-		}.navigationBarBackButtonHidden(true)
+		}
+		.navigationDestination(item: $controller.currentRoute) { route in
+			switch route {
+					case .login:
+						LoginView()
+					case .landing:
+						LandingView()
+				}
+			}
+		.navigationBarBackButtonHidden(true)
 	}
 }
 

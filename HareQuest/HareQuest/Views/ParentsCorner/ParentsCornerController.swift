@@ -11,7 +11,24 @@ import Combine
 import KeychainSwift
 
 
+@MainActor
 class ParentsCornerController: ObservableObject {
+	/// Routes
+	enum PCornerRoute: Hashable {
+		case home
+	}
+	@Published var currentRoute: PCornerRoute?
+	
+	/// UI Elements
+	@Published var parentsChildren: [ParentChild]?
+
+	/// Services
+	
+	
+	func openHomeView() { currentRoute = .home }
+	
+	
 	
 }
+
 
