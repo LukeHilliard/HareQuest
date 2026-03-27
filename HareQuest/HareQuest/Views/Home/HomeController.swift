@@ -11,11 +11,23 @@ import Combine
 import KeychainSwift
 
 class HomeController: ObservableObject {
+	enum HomeRoute: Hashable {
+		case parentsCorner
+
+	}
 	
-	@Published var acessToken: String? = nil
-	@Published var users: [User]
+	@Published var currentRoute: HomeRoute?
 	let keychain = KeychainSwift()
-	let apiService = ApiService()
+	let sessionManager = SessionManager.shared
+	
+	/// Navigation
+	func openParentsCornerView() { currentRoute = .parentsCorner }
+	
+	func logout() {
+		sessionManager.clear()
+	
+
+	}
 
 
 	
@@ -41,9 +53,10 @@ class HomeController: ObservableObject {
 	//		}
 	//	}
 	
-	init() {
-		acessToken = keychain.get("hq_token")
-		self.users = []
-	}
+	
+	
+	
+	
+	
 	
 }
