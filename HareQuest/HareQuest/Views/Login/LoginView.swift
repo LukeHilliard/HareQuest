@@ -24,19 +24,24 @@ struct LoginView: View {
 			SecureField("Password", text: $controller.password)
 							.textFieldStyle(.roundedBorder)
 			
-			NavigationStack {
 				HStack {
 					Button("Login") {
-						// TODO: Implement controller logic
-						controller.LoginUser()
+						Task {
+							try await controller.login()
+						}
 					}.buttonStyle(.bordered)
 					
 					Button("Return") {
 						dismiss()
 					}
+				}.navigationDestination(item: $controller.currentRoute) { route in
+					switch route {
+						case .home:
+							HomeView()
+						case .landing:
+							LandingView()
+					}
 				}
-			}.navigationDestination(isPresented: $controller.isLoggedIn) { HomeView() }
-
 			Spacer()
 		}.navigationBarBackButtonHidden(true)
 		

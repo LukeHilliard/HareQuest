@@ -9,18 +9,19 @@ import Foundation
 import SwiftUI
 import Combine
 
+
+
+@MainActor
 final class LandingController: ObservableObject {
-	@Published var showLogin: Bool = false
-	@Published var showRegister: Bool = false
+	/// Routes
+	enum LandingRoute: Hashable {
+		case login
+		case register
+	}
+	@Published var currentRoute: LandingRoute?
 	
-	/// Handles navigation to Login
-	func openLoginView() {
-		showLogin = true
-		showRegister = false
-	}
-	/// Handles navigation to Register
-	func openRegisterView() {
-		showRegister = true
-		showLogin = false
-	}
+	/// Navigation
+	func openLoginView() { currentRoute = .login }
+	func openRegisterView() { currentRoute = .register }
+	
 }

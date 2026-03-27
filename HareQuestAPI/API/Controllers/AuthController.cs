@@ -39,7 +39,8 @@ namespace API.Controllers
         return BadRequest(new
         {
           status = 400,
-          message = "Email already exists"
+          message = "Email already exists",
+          success = false
         });
       }
 
@@ -70,7 +71,8 @@ namespace API.Controllers
       return Ok(new
       {
         status = 200,
-        message = $"User {newUser.Id} Registered successfully"
+        message = $"User {newUser.Id} Registered successfully",
+        success = true
       });
     }
 
@@ -87,7 +89,8 @@ namespace API.Controllers
         return BadRequest(new
         {
           status = 400,
-          message = "Email does not exists"
+          message = "Email does not exists",
+          success = false
         });
       }
       
@@ -106,7 +109,8 @@ namespace API.Controllers
         return BadRequest(new
         {
           status = 400,
-          message = "Passwords do not match"
+          message = "Incorrect Password",
+          success = false
         });
       }
       
@@ -123,7 +127,8 @@ namespace API.Controllers
       {
         status = 200,
         accessToken = token,
-        message = $"User {user.Id} Logged In"
+        message = $"User {user.Id} Logged In",
+        success = true
       });
     }
     
