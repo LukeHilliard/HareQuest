@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
 	@StateObject private var controller = RegisterController()
+
 	@Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
 	var body: some View {
 		VStack {
@@ -34,22 +35,27 @@ struct RegisterView: View {
 				}
 			}.buttonStyle(.bordered)
 
-			NavigationStack {
+
 				HStack {
 					Button("Register") {
-						// TODO: Implement controller logic
-						controller.registerNewUser()
+						Task { 
+							try await controller.register()
+						}
 					}.buttonStyle(.bordered)
 					
 					Button("Return") {
 						dismiss()
 					}.buttonStyle(.bordered)
+				}.navigationDestination(item: $controller.currentRoute) { route in
+					switch route {
+						case .login:
+							LoginView()
+						case .landing:
+							LandingView()
+					}
 				}
-			}.navigationDestination(isPresented: $controller.isRegistered) { LoginView() }
-			
 			Spacer()
 		}.navigationBarBackButtonHidden(true)
-	
 	}
 }
 

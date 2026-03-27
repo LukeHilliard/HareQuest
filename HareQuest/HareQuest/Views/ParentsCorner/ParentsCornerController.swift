@@ -9,3 +9,9 @@ import Foundation
 import SwiftUI
 import Combine
 import KeychainSwift
+
+
+class ParentsCornerController: ObservableObject {
+	
+}
+

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct LandingView: View {
 	@StateObject private var controller = LandingController()
+	
 
 	var body: some View {
-		NavigationStack {
+		NavigationStack { /// Parent navigation stack, this is passed to all child view (pretty much every view)
 			VStack {
 				Button("Login") {
 					controller.openLoginView()
@@ -20,8 +21,14 @@ struct LandingView: View {
 					controller.openRegisterView()
 				}.buttonStyle(.bordered)
 			}
-			.navigationDestination(isPresented: $controller.showLogin) { LoginView() }
-			.navigationDestination(isPresented: $controller.showRegister) { RegisterView() }
+			.navigationDestination(item: $controller.currentRoute) { route in
+				switch route {
+					case .login:
+					LoginView()
+				case .register:
+					RegisterView()
+				}
+			}
 			
 		}.navigationBarBackButtonHidden(true)
 		
