@@ -29,7 +29,9 @@ class LoginController: ObservableObject {
 	
 //	private let apiService = ApiService()
 	private let authService = AuthService.shared
+	private let sessionManager = SessionManager.shared
 	private let keychain = KeychainSwift()
+	
 	
 	func openHomeView() { currentRoute = .home }
 	func openLandingView() { currentRoute = .landing }
@@ -47,7 +49,8 @@ class LoginController: ObservableObject {
 			switch loginResponse.success {
 			case true:
 				print(loginResponse)
-				keychain.set(loginResponse.accessToken ?? "", forKey: "hq_token")
+				keychain.set(loginResponse.accessToken ?? "", forKey: "hq_token") /// using "" as i know if this stage is reached there will be a token
+				sessionManager.refreshToken(token: loginResponse.accessToken ?? "")
 				self.openHomeView()
 			case false:
 				// TODO: Handle failed login

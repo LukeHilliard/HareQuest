@@ -34,16 +34,18 @@ struct LoginView: View {
 					Button("Return") {
 						dismiss()
 					}
-				}.navigationDestination(item: $controller.currentRoute) { route in
-					switch route {
-						case .home:
-							HomeView()
-						case .landing:
-							LandingView()
-					}
 				}
 			Spacer()
-		}.navigationBarBackButtonHidden(true)
+		}
+		.navigationDestination(item: $controller.currentRoute) { route in
+			switch route {
+				case .home:
+					HomeView()
+				case .landing:
+					LandingView()
+			}
+		}
+		.navigationBarBackButtonHidden(true)
 		
 	}
 }
