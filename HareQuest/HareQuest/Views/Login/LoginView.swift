@@ -21,9 +21,11 @@ struct LoginView: View {
 			TextField("Email", text: $controller.email)
 							.textFieldStyle(.roundedBorder)
 							.keyboardType(.emailAddress)
+							.autocapitalization(.none)
 			
 			SecureField("Password", text: $controller.password)
 							.textFieldStyle(.roundedBorder)
+							.autocapitalization(.none)
 			
 				HStack {
 					Button("Login") {

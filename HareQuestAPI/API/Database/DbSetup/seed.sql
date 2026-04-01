@@ -22,8 +22,8 @@ CREATE TABLE ShopItem
     
     
 INSERT INTO Users (Id, Name, Email, Password, Salt, Role)
-VALUES (UUID(), 'Stuart Little', 'slittle@gmail.com', 'Test1234567!', 'test', 'student'),
-       (UUID(), 'Matilda Wormwood', 'mwormwood@gmail.com', 'Test1234567!', 'test', 'student'),
-       (UUID(), 'Mary Poppins', 'mpoppins@gmail.com', 'Test1234567!', 'test', 'parent'),
-       (UUID(), 'Jennifer Honey', 'jhoney@gmail.com', 'Test1234567!', 'test', 'teacher'),
-       (UUID(), 'Euphegenia Doubtfire', 'edoubtfire@gmail.com', 'Test1234567!', 'test', 'teacher');
+VALUES (UUID(), 'Stuart Little', 'slittle@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
+       (UUID(), 'Matilda Wormwood', 'mwormwood@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
+       (UUID(), 'Mary Poppins', 'mpoppins@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'parent'),
+       (UUID(), 'Jennifer Honey', 'jhoney@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher'),
+       (UUID(), 'Euphegenia Doubtfire', 'edoubtfire@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher');

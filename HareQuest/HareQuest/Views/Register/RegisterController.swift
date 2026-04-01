@@ -20,7 +20,6 @@ final class RegisterController: ObservableObject {
 	enum Role: String, Codable, CaseIterable {
 		case parent = "Parent" /// default
 		case teacher = "Teacher"
-		case student = "Student"
 	}
 	/// Input elements
 	@Published var name: String = ""
