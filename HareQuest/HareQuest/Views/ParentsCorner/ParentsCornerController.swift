@@ -27,6 +27,18 @@ class ParentsCornerController: ObservableObject {
 	
 	func openHomeView() { currentRoute = .home }
 	
+	func getParentsChildren() async throws {
+		// TODO: check if data available on device, if not call api
+	}
+	
+	init() {
+		Task {
+			if parentsChildren == nil {
+				try await getParentsChildren()
+			}
+		}
+	}
+	
 	
 	
 }

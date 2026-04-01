@@ -8,13 +8,19 @@ CREATE TABLE Users
     Password VARCHAR(255) NOT NULL,
     Salt     VARCHAR(255) NOT NULL,
     Role     VARCHAR(8)   NOT NULL,
-    
+
 
     PRIMARY KEY (Id)
 );
 
-
-
+CREATE TABLE ShopItem
+(
+  Id INT NOT NULL,
+  Name VARCHAR(100) NOT NULL,
+  Cost INT NOT NULL,  
+); 
+    
+    
 INSERT INTO Users (Id, Name, Email, Password, Salt, Role)
 VALUES (UUID(), 'Stuart Little', 'slittle@gmail.com', 'Test1234567!', 'test', 'student'),
        (UUID(), 'Matilda Wormwood', 'mwormwood@gmail.com', 'Test1234567!', 'test', 'student'),
