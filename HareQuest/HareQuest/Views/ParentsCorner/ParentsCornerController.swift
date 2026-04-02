@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 import Combine
 import KeychainSwift
-
+import SwiftData
 
 @MainActor
-class ParentsCornerController: ObservableObject {
+class ParentsCornerController: ObservableObject {	
 	/// Routes
 	enum PCornerRoute: Hashable {
 		case addChild
@@ -24,7 +24,7 @@ class ParentsCornerController: ObservableObject {
 	@Published var hasChildren = false
 	
 		/// AddChild Elements
-	enum ChildClass: String, Codable, CaseIterable {
+	enum ChildClass: String, Codable, CaseIterable, Hashable {
 		case first = "1st"
 		case second = "2nd"
 		case third = "3rd"
@@ -34,34 +34,10 @@ class ParentsCornerController: ObservableObject {
 	}
 	@Published var childName: String = ""
 	@Published var childClass: ChildClass = .first
-
-	/// Services
 	
 	
 	func openAddChildView() { currentRoute = .addChild }
-	
-	func getParentsChildren() async throws -> Void {
-		// TODO: check if data available on device, if not call api
-	}
-	
-	func addChild() async throws -> Void {
-		// TODO: Implement ParentChildService
-		print("Adding child")
-		print("Values-\(childName)---\(childClass)")
-	}
-	
-	init() {
-		Task {
-			if parentsChildren == nil {
-				try await getParentsChildren()
-			}
-		}
-		hasChildren = parentsChildren?.isEmpty == false
-		
-	}
-	
-	
-	
+
 }
 
 

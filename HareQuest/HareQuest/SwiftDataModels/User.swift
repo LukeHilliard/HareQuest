@@ -14,7 +14,6 @@ final class User {
 	var id: UUID
 	var name: String
 	var email: String
-	var password: String
 	var role: String
 	
 	
@@ -22,11 +21,10 @@ final class User {
 	@Relationship(deleteRule: .cascade, inverse: \ParentChild.parent)
 	var parentChildren: [ParentChild] = []
 	
-	init(id: UUID, name: String, email: String, password: String, role: String) {
+	init(id: UUID, name: String, email: String, role: String) {
 		self.id = id
 		self.name = name
 		self.email = email
-		self.password = password
 		self.role = role
 	}
 }

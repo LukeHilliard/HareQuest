@@ -1,29 +1,33 @@
 //
-//  AddChildView.swift
+//  EditChildView.swift
 //  HareQuest
 //
-//  Created by Luke Hilliard on 01/04/2026.
+//  Created by Luke Hilliard on 02/04/2026.
 //
 
 import SwiftUI
 import SwiftData
 
-struct AddChildView: View {
+struct EditChildView: View {
 	@ObservedObject var controller: ParentsCornerController
 	@Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
 	@Environment(\.modelContext) private var modelContext
+	
+	@StateObject var child: ParentChild
+	
+	
 	var body: some View {
 		VStack(spacing: 16) {
 			HStack {
 				Text("My childs name is")
-				TextField("Name", text: $controller.childName)
+				TextField("Name", text: $child.name)
 						.textFieldStyle(.roundedBorder)
 						.keyboardType(.default)
 						.textInputAutocapitalization(.never)
 			}
 			HStack {
 				Text("They are in")
-				Picker("Role", selection: $controller.childClass) {
+				Picker("Role", selection: $child.classGroup) {
 					ForEach(ParentsCornerController.ChildClass.allCases, id: \.self) { role in
 								Text(role.rawValue)
 						}
@@ -34,8 +38,8 @@ struct AddChildView: View {
 				Button("Return") {
 					dismiss()
 				}.buttonStyle(.bordered)
-				Button("Add Child") {
-					modelContext.insert(ParentChild(id: UUID(), name: controller.childName, classGroup: controller.childClass))
+				Button("Update Child") {
+//					modelContext.insert(ParentChild(id: UUID(), name: controller.childName, classGroup: controller.childClass))
 				}.buttonStyle(.bordered)
 			}
 			Spacer()
@@ -45,5 +49,8 @@ struct AddChildView: View {
 }
 
 #Preview {
-    AddChildView(controller: ParentsCornerController())
+    EditChildView(
+        controller: ParentsCornerController(),
+        child: ParentChild(id: UUID(), name: "Test", classGroup: .first)
+    )
 }
