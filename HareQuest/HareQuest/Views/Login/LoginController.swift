@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 import KeychainSwift
-
+import SwiftData
 
 @MainActor
 class LoginController: ObservableObject {
@@ -42,8 +42,16 @@ class LoginController: ObservableObject {
 			switch loginResponse.success {
 			case true:
 				print(loginResponse)
-				keychain.set(loginResponse.accessToken ?? "", forKey: "hq_token") /// using "" as i know if this stage is reached there will be a token
-				sessionManager.refreshToken(token: loginResponse.accessToken ?? "")
+				if let token = loginResponse.accessToken {
+					keychain.set(token, forKey: "hq_token")
+					keychain.set(String(describing: loginResponse.userId), forKey: "hq_userId")
+					sessionManager.refreshToken(token: token)
+				} else {
+					sessionManager.isAuth = false
+					print("Login response missing access token")
+					return
+				}
+				
 				openHomeView()
 			case false:
 				sessionManager.isAuth = false

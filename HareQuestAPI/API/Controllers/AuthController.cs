@@ -101,8 +101,9 @@ namespace API.Controllers
         iterationCount: 10000,
         numBytesRequested: 256 / 8
       ));
-      Console.WriteLine(hashToCheck);
-      Console.WriteLine(user.Password);
+      // Console.WriteLine(hashToCheck);
+      // Console.WriteLine(user.Password);
+      
       // Check password
       if (hashToCheck != user.Password)
       {
@@ -127,6 +128,7 @@ namespace API.Controllers
       {
         status = 200,
         accessToken = token,
+        userId = user.Id,
         message = $"User {user.Id} Logged In",
         success = true
       });

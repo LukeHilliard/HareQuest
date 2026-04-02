@@ -6,6 +6,7 @@ namespace API.Database
   {
 
     public DbSet<User> Users {get; set;}
+    public DbSet<ParentChild> ParentChildren {get; set;}
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
@@ -17,6 +18,7 @@ namespace API.Database
         .HasIndex(u => u.Email)
         .IsUnique();
     }
+      public DbSet<API.Models.ParentChild> ParentChild { get; set; } = default!;
 
   }
 }

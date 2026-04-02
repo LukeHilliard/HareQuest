@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
 	@StateObject private var session = SessionManager.shared
-//    @Environment(\.modelContext) private var modelContext
+	
 
     var body: some View {
 			Group {

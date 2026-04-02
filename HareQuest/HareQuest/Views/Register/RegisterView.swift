@@ -21,13 +21,16 @@ struct RegisterView: View {
 			TextField("Name", text: $controller.name)
 							.textFieldStyle(.roundedBorder)
 							.keyboardType(.default)
+							.autocapitalization(.none)
 			
 			TextField("Email", text: $controller.email)
 							.textFieldStyle(.roundedBorder)
 							.keyboardType(.emailAddress)
+							.autocapitalization(.none)
 			
 			SecureField("Password", text: $controller.password)
 							.textFieldStyle(.roundedBorder)
+							.autocapitalization(.none)
 			
 			Picker("Role", selection: $controller.role) {
 				ForEach(RegisterController.Role.allCases, id: \.self) { role in
