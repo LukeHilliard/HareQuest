@@ -12,8 +12,16 @@ struct LandingView: View {
 	
 
 	var body: some View {
+    
+           
 		NavigationStack { /// Parent navigation stack, this is passed to all child view (pretty much every view)
+            
 			VStack {
+                Text("Welcome to Hare Quest")
+                    .font(.title)
+                    .foregroundStyle(.accentTitle)
+                    .fontWeight(.bold)
+               
 				Button("Login") {
 					controller.openLoginView()
 				}.buttonStyle(.bordered)
