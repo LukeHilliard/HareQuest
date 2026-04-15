@@ -21,6 +21,7 @@ final class SessionManager: ObservableObject {
 		checkToken()
 	}
 	
+	
 	func checkToken() {
 		if let token = keychain.get("hq_token"), !token.isEmpty {
 			self.isAuth = true
@@ -32,6 +33,10 @@ final class SessionManager: ObservableObject {
 	func refreshToken(token: String) {
 		keychain.set(token, forKey: "hq_token")
 		self.isAuth = true
+	}
+	
+	func setRole(role: String) {
+		keychain.set(role, forKey: "hq_role")
 	}
 	
 	func clear() {

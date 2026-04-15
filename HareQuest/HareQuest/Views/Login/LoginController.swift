@@ -43,9 +43,13 @@ class LoginController: ObservableObject {
 			case true:
 				print(loginResponse)
 				if let token = loginResponse.accessToken {
+					/// Store token on keychian
 					keychain.set(token, forKey: "hq_token")
 					keychain.set(String(describing: loginResponse.userId), forKey: "hq_userId")
 					sessionManager.refreshToken(token: token)
+					
+					/// Store role on keychain
+					if let role = loginResponse.role { sessionManager.setRole(role: role) }
 				} else {
 					sessionManager.isAuth = false
 					print("Login response missing access token")

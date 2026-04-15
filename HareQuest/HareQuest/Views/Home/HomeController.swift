@@ -17,10 +17,19 @@ class HomeController: ObservableObject {
 		case parentsCorner = 0
 		case activities = 1
 		case profile = 2
+		case teachersCorner = 3
 	}
-	@Published var selectedTab: HomeTabs = .activities
 	
-	let keychain = KeychainSwift()
-	let sessionManager = SessionManager.shared
+	private let keychain = KeychainSwift()
+	
+	@Published var selectedTab: HomeTabs = .activities
+	@Published var sessionManager = SessionManager.shared
+	@Published var role: String? = nil
+	
+	init() {
+		self.role = self.keychain.get("hq_role")
+	}
+	
+	
 	
 }

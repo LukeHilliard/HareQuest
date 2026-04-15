@@ -23,7 +23,7 @@ class ParentsCornerController: ObservableObject {
 	@Published var parentsChildren: [ParentChild]?
 	@Published var hasChildren = false
 	
-		/// AddChild Elements
+	/// AddChild Elements
 	enum ChildClass: String, Codable, CaseIterable, Hashable {
 		case first = "1st"
 		case second = "2nd"
