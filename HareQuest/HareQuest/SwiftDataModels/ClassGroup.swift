@@ -13,16 +13,17 @@ import Combine
 class ClassGroup: ObservableObject {
 	var id: UUID
 	var teacherId: UUID
-	var name: String
-	var classGroup: String
+	var className: String
 	var classCode: String
+	var classLevel: String
+	
 
 	
-	init(id: UUID, teacherId: UUID, name: String, classGroup: String, classCode: String) {
+	init(id: UUID, teacherId: UUID, className: String, classLevel: String, classCode: String) {
 		self.id = id
 		self.teacherId = teacherId
-		self.name = name
-		self.classGroup = classGroup
+		self.className = className
+		self.classLevel = classLevel
 		self.classCode = classCode
 	}
 }

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS ClassStudents;
+DROP TABLE IF EXISTS ClassGroups;
 DROP TABLE IF EXISTS Users;
 
 CREATE TABLE Users
@@ -9,17 +11,42 @@ CREATE TABLE Users
     Salt     VARCHAR(255) NOT NULL,
     Role     VARCHAR(8)   NOT NULL,
 
-
     PRIMARY KEY (Id)
+);
+
+CREATE TABLE ClassGroups
+(
+    Id          CHAR(36)     NOT NULL,
+    TeacherId   VARCHAR(36)  NOT NULL,
+    ClassName   VARCHAR(100) NOT NULL,
+    ClassLevel  VARCHAR(4)   NOT NULL,
+    ClassCode   VARCHAR(6)   NOT NULL,
+    
+    PRIMARY KEY (Id),
+    FOREIGN KEY (TeacherId) REFERENCES Users(Id)
+    
+);
+
+CREATE TABLE ClassStudents
+(
+    Id          CHAR(36)     NOT NULL,
+    ParentId    CHAR(36)     NOT NULL,
+    ClassId     CHAR(36)     NOT NULL,
+    StudentName VARCHAR(100) NOT NULL,
+
+    PRIMARY KEY (Id),
+    FOREIGN KEY (ParentId) REFERENCES Users(Id),
+    FOREIGN KEY (ClassId) REFERENCES ClassGroups(Id)
+    
 );
 
 CREATE TABLE ShopItem
 (
-  Id INT NOT NULL,
-  Name VARCHAR(100) NOT NULL,
-  Cost INT NOT NULL,  
-); 
-    
+    Id   INT          NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Cost INT          NOT NULL,
+);
+
     
 INSERT INTO Users (Id, Name, Email, Password, Salt, Role)
 VALUES (UUID(), 'Stuart Little', 'slittle@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),

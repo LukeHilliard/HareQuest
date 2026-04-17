@@ -10,7 +10,7 @@ import SwiftData
 
 struct TeachersCornerView: View {
 	@StateObject private var controller = TeachersCornerController()
-	@Query(sort: \ClassGroup.classGroup, order: .forward) var classGroups: [ClassGroup]
+	@Query(sort: \ClassGroup.classLevel, order: .forward) var classGroups: [ClassGroup]
 	
     var body: some View {
 			Header(title: "Teacher's Corner", backgroundColor: Color.brown)
