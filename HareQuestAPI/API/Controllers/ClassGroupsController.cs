@@ -50,7 +50,7 @@ namespace API.Controllers
           {
             Id = Guid.NewGuid(),
             TeacherId = newGroup.TeacherId,
-            ClassName = newGroup.ClassName,
+            Name = newGroup.Name,
             ClassCode = classCode,
             ClassLevel = newGroup.ClassLevel
           };
@@ -67,9 +67,9 @@ namespace API.Controllers
             id = classGroup.Id,
             teacherId = newGroup.TeacherId,
             status = 200,
-            message = $"ClassGroup -|{classGroup.ClassName}| successfully created",
+            message = $"ClassGroup -|{classGroup.Name}| successfully created",
             success = true,
-            className =  classGroup.ClassName,
+            name =  classGroup.Name,
             classCode = classGroup.ClassCode,
             classLevel = classGroup.ClassLevel
           });

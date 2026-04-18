@@ -19,7 +19,7 @@ CREATE TABLE ClassGroups
 (
     Id          CHAR(36)     NOT NULL,
     TeacherId   CHAR(36)     NOT NULL,
-    ClassName   VARCHAR(100) NOT NULL,
+    Name   VARCHAR(100) NOT NULL,
     ClassLevel  VARCHAR(4)   NOT NULL,
     ClassCode   VARCHAR(6)   NOT NULL,
     
@@ -50,8 +50,8 @@ CREATE TABLE ShopItem
 
     
 INSERT INTO Users (Id, Name, Email, Password, Salt, Role)
-VALUES (UUID(), 'Stuart Little', 'slittle@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
-       (UUID(), 'Matilda Wormwood', 'mwormwood@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
-       (UUID(), 'Mary Poppins', 'mpoppins@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'parent'),
-       (UUID(), 'Jennifer Honey', 'jhoney@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher'),
-       (UUID(), 'Euphegenia Doubtfire', 'edoubtfire@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher');
+VALUES ('11111111-1111-1111-1111-111111111111', 'Stuart Little', 'slittle@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
+       ('11111111-1111-1111-1111-111111111112', 'Matilda Wormwood', 'mwormwood@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'student'),
+       ('11111111-1111-1111-1111-111111111113', 'Mary Poppins', 'mpoppins@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'parent'),
+       ('11111111-1111-1111-1111-111111111114', 'Jennifer Honey', 'jhoney@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher'),
+       ('11111111-1111-1111-1111-111111111115', 'Euphegenia Doubtfire', 'edoubtfire@gmail.com', 'OFHrBJexEcjWIlslrHJ2cCtaDHWbeTyUPOcaUKfRN44=', 'gt5YkohtwmD62TuRkohA2Q==', 'teacher');

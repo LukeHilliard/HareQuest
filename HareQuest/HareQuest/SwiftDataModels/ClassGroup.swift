@@ -13,7 +13,7 @@ import Combine
 final class ClassGroup {
 	@Attribute(.unique) var id: UUID
 	var teacherId: UUID
-	var className: String
+	var name: String
 	var classCode: String
 	var classLevel: String
 	
@@ -21,10 +21,10 @@ final class ClassGroup {
 	
 
 	
-	init(id: UUID, teacherId: UUID, className: String, classCode: String, classLevel: String, students: [Student]?) {
+	init(id: UUID, teacherId: UUID, name: String, classCode: String, classLevel: String, students: [Student]?) {
 		self.id = id
 		self.teacherId = teacherId
-		self.className = className
+		self.name = name
 		self.classCode = classCode
 		self.classLevel = classLevel
 		self.students = students

@@ -14,11 +14,20 @@ final class SessionManager: ObservableObject {
 	static let shared = SessionManager()
 	
 	@Published var isAuth: Bool = false
+	@Published var identifier: UUID?
+	
 	
 	private let keychain = KeychainSwift()
 	
 	init() {
 		checkToken()
+		self.identifier = try? getId()
+	}
+	
+	func logout() {
+		keychain.clear()
+		self.isAuth = false
+		self.identifier = nil
 	}
 	
 	
@@ -35,12 +44,16 @@ final class SessionManager: ObservableObject {
 		self.isAuth = true
 	}
 	
+	func getId() throws -> UUID? {
+		if let id = keychain.get("hq_userId") {
+			guard let convertedId = UUID(uuidString: id) else { throw NSError(domain: "Auth", code: 0, userInfo: nil) }
+			return convertedId
+		}
+		return nil
+	}
+	
 	func setRole(role: String) {
 		keychain.set(role, forKey: "hq_role")
 	}
 	
-	func clear() {
-		keychain.delete("hq_token")
-		self.isAuth = false
-	}
 }

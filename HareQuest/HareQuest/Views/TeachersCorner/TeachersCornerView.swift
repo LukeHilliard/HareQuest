@@ -11,8 +11,16 @@ import SwiftData
 struct TeachersCornerView: View {
 	@Environment(\.modelContext) private var modelContext
 	@StateObject private var controller = TeachersCornerController()
-	@Query(sort: \ClassGroup.classLevel, order: .forward) var classGroups: [ClassGroup]
-	
+	let teacherId: UUID
+/// Querying with a filter - https://developer.apple.com/documentation/swiftdata/filtering-and-sorting-persistent-data
+	@Query private var classGroups: [ClassGroup]
+	init(teacherId: UUID) {
+		self.teacherId = teacherId
+		_classGroups = Query(filter: #Predicate<ClassGroup> { groups in
+				groups.teacherId == teacherId
+		}, sort: \.classLevel)
+	}
+
     var body: some View {
 			Header(title: "Teacher's Corner", backgroundColor: Color.brown)
 			NavigationStack {
@@ -43,7 +51,9 @@ struct TeachersCornerView: View {
 										.stroke(Color.gray.opacity(0.5), lineWidth: 1)
 										.background(Color.white.cornerRadius(15))
 
-									Text(classGroup.className).bold()
+									Text(classGroup.name)
+										.font(.headline)
+										.foregroundColor(.primary)
 								}
 								.frame(width: 350, height: 100)
 								.listRowSeparator(.hidden)
@@ -76,10 +86,11 @@ struct TeachersCornerView: View {
 					}
 					Spacer()
 				}
+				.id(teacherId)
 			}
     }
 }
 
 #Preview {
-    TeachersCornerView()
+	TeachersCornerView(teacherId: UUID())
 }

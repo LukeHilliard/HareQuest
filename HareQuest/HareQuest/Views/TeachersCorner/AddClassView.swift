@@ -22,7 +22,7 @@ struct AddClassView: View {
 			if !codeIsGenerated {
 				HStack {
 					Text("Class Name")
-					TextField("Name", text: $controller.className)
+					TextField("Name", text: $controller.name)
 							.textFieldStyle(.roundedBorder)
 							.keyboardType(.default)
 							.textInputAutocapitalization(.never)
@@ -43,16 +43,20 @@ struct AddClassView: View {
 						Task {
 							do {
 								let createdClass = try await controller.createClassGroup()
-								modelContext.insert(ClassGroup(
-									id: createdClass.id,
-									teacherId: createdClass.teacherId,
-									className: createdClass.className,
-									classCode: createdClass.classCode,
-									classLevel: createdClass.classLevel,
-									students: []
-								))
-								codeIsGenerated = true
 								
+								await MainActor.run {
+									modelContext.insert(ClassGroup(
+										id: createdClass.id,
+										teacherId: createdClass.teacherId,
+										name: createdClass.name,
+										classCode: createdClass.classCode,
+										classLevel: createdClass.classLevel,
+										students: []
+									))
+									
+									codeIsGenerated = true
+									self.classCode = createdClass.classCode
+								}
 							} catch {
 								print("ERROR: \(error)")
 							}

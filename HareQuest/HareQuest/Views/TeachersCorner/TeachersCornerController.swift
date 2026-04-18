@@ -29,21 +29,21 @@ final class TeachersCornerController: ObservableObject {
 	}
 	
 	
-	@Published var className: String = ""
+	@Published var name: String = ""
 	@Published var classLevel: ClassLevel = .first
 	
 	init() {}
 	
 	/// Services
-	private let classGroupsService = ClassGroupsService.shared
-	private let sessionManager = SessionManager.shared
+	let classGroupsService = ClassGroupsService.shared
+	let sessionManager = SessionManager.shared
 	let keychain = KeychainSwift()
 	
 	func createClassGroup() async throws -> ClassGroup {
 		/// Unwrap userId from keychain, convert from String -> UUID
 		guard let teacherIdString = keychain.get("hq_userId"),
 			let teacherId = UUID(uuidString: teacherIdString) else {
-			sessionManager.clear()
+			sessionManager.logout()
 			throw NSError(domain: "Auth", code: 1, userInfo: [NSLocalizedDescriptionKey: "No ID in session"])
 		}
 		print(teacherIdString)
@@ -51,7 +51,7 @@ final class TeachersCornerController: ObservableObject {
 		/// Build class group from UI
 		let classDetails = ClassGroupDto(
 			teacherId: teacherId,
-			className: self.className,
+			name: self.name,
 			classLevel: self.classLevel.rawValue
 		)
 		/// Make request, add class to db and recieve a code to join class
@@ -61,10 +61,10 @@ final class TeachersCornerController: ObservableObject {
 			return ClassGroup(
 					id: classGroupResponse.id,
 					teacherId: teacherId,
-					className: classGroupResponse.className,
+					name: classGroupResponse.name,
 					classCode: classGroupResponse.classCode,
 					classLevel: classGroupResponse.classLevel,
-					students: []
+					students: nil
 			)
 		} else {
 			throw NSError(domain: "ClassGroups", code: classGroupResponse.status, userInfo: [NSLocalizedDescriptionKey: classGroupResponse.message])

@@ -10,7 +10,7 @@ import Foundation
 
 struct ClassGroupDto: Codable {
 	let teacherId: UUID
-	let className: String
+	let name: String
 	let classLevel: String
 }
 
@@ -26,7 +26,7 @@ struct ClassGroupResponse: Codable {
 	let message: String
 	let success: Bool
 	let teacherId: UUID
-	let className: String
+	let name: String
 	let classCode: String
 	let classLevel: String
 	let students: [ClassStudent]?

@@ -47,6 +47,7 @@ class LoginController: ObservableObject {
 					keychain.set(token, forKey: "hq_token")
 					sessionManager.refreshToken(token: token)
 					keychain.set(userId.uuidString, forKey: "hq_userId")
+					sessionManager.identifier = userId
 					if let role = loginResponse.role {
 						sessionManager.setRole(role: role)
 					}
