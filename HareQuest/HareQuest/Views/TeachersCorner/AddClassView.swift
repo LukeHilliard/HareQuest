@@ -13,6 +13,8 @@ struct AddClassView: View {
 	@Environment(\.modelContext) private var modelContext
 	
 	@State private var codeIsGenerated = false
+	@State private var classCode = "No Code"
+	@State private var newClassId: UUID?
 	
 	var body: some View {
 		VStack(spacing: 16) {
@@ -26,9 +28,9 @@ struct AddClassView: View {
 							.textInputAutocapitalization(.never)
 				}
 				HStack {
-					Text("Class Group")
-					Picker("Class Group", selection: $controller.classGroup) {
-						ForEach(TeachersCornerController.ClassGroup.allCases, id: \.self) { role in
+					Text("Class")
+					Picker("Grade", selection: $controller.classLevel) {
+						ForEach(TeachersCornerController.ClassLevel.allCases, id: \.self) { role in
 							Text(role.rawValue)
 							}
 					}.buttonStyle(.bordered)
@@ -37,10 +39,20 @@ struct AddClassView: View {
 					Button("Return") {
 						dismiss()
 					}.buttonStyle(.bordered)
-					Button("Create Class") {
+					Button("Create Class Group") {
 						Task {
 							do {
-								try await controller.createClassGroup()
+								let createdClass = try await controller.createClassGroup()
+								modelContext.insert(ClassGroup(
+									id: createdClass.id,
+									teacherId: createdClass.teacherId,
+									className: createdClass.className,
+									classCode: createdClass.classCode,
+									classLevel: createdClass.classLevel,
+									students: []
+								))
+								codeIsGenerated = true
+								
 							} catch {
 								print("ERROR: \(error)")
 							}
@@ -48,13 +60,16 @@ struct AddClassView: View {
 						}
 					}.buttonStyle(.bordered)
 				}
-				Spacer()
+				
 			} else {
-				Text("Code generated")
+				Text("Class Group successfully created.")
+				Text("Code generated! Share with students")
+				Text(classCode)
 				Button("Continue") {
 					dismiss()
 				}
 			}
+			Spacer()
 			
 		}
 		.navigationBarBackButtonHidden(true)

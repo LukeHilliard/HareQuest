@@ -29,12 +29,24 @@ namespace API.Controllers
           Console.WriteLine("Creating ClassGroup");
           // generate unique code
           Random rand = new Random();
-          string classCode = rand.Next(100000, 1000000).ToString();
+          string classCode = "";
+          
+          // TODO: Hash ClassCode before saving to database. Table needs Hash and Salt column
+          // check if random code already exists, keep making a new one until a unique one is made
+          bool isUnique = false;
+          while (!isUnique) {
+            classCode = rand.Next(100000, 1000000).ToString();
+            bool ifExists = await _context.ClassGroups.AnyAsync(c => c.ClassCode == classCode);
+            if (!ifExists) 
+              isUnique = true;
+          }
+          // check code doesnt already exist
+          // var codeExists = _context.ClassGroupss.FirstOrDefault(c => c.ClassCode == classCode);
           Console.WriteLine($"Class Code - {classCode}");
           
           
           // map dto to model
-          ClassGroup classGroup = new ClassGroup
+          ClassGroups classGroup = new ClassGroups
           {
             Id = Guid.NewGuid(),
             TeacherId = newGroup.TeacherId,
@@ -46,13 +58,14 @@ namespace API.Controllers
           Console.WriteLine($"Dto to Model result - {classGroup.ToString()}");
           
           // save
-          // _context.ClassGroups.Add(classGroup);
-          // await _context.SaveChangesAsync();
-          // build response
+          _context.ClassGroups.Add(classGroup);
+          await _context.SaveChangesAsync();
 ;
+          // build response
           return Ok(new
           {
             id = classGroup.Id,
+            teacherId = newGroup.TeacherId,
             status = 200,
             message = $"ClassGroup -|{classGroup.ClassName}| successfully created",
             success = true,
@@ -64,16 +77,16 @@ namespace API.Controllers
 
         // GET: api/ClassGroups
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClassGroup>>> GetClassGroup()
+        public async Task<ActionResult<IEnumerable<ClassGroups>>> GetClassGroup()
         {
-            return await _context.ClassGroup.ToListAsync();
+            return await _context.ClassGroups.ToListAsync();
         }
 
         // GET: api/ClassGroups/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClassGroup>> GetClassGroup(Guid id)
+        public async Task<ActionResult<ClassGroups>> GetClassGroup(Guid id)
         {
-            var classGroup = await _context.ClassGroup.FindAsync(id);
+            var classGroup = await _context.ClassGroups.FindAsync(id);
 
             if (classGroup == null)
             {
@@ -86,7 +99,7 @@ namespace API.Controllers
         // PUT: api/ClassGroups/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClassGroup(Guid id, ClassGroup classGroup)
+        public async Task<IActionResult> PutClassGroup(Guid id, ClassGroups classGroup)
         {
             if (id != classGroup.Id)
             {
@@ -117,9 +130,9 @@ namespace API.Controllers
         // POST: api/ClassGroups
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ClassGroup>> PostClassGroup(ClassGroup classGroup)
+        public async Task<ActionResult<ClassGroups>> PostClassGroup(ClassGroups classGroup)
         {
-            _context.ClassGroup.Add(classGroup);
+            _context.ClassGroups.Add(classGroup);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetClassGroup", new { id = classGroup.Id }, classGroup);
@@ -129,27 +142,21 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClassGroup(Guid id)
         {
-            var classGroup = await _context.ClassGroup.FindAsync(id);
+            var classGroup = await _context.ClassGroups.FindAsync(id);
             if (classGroup == null)
             {
                 return NotFound();
             }
 
-            _context.ClassGroup.Remove(classGroup);
+            _context.ClassGroups.Remove(classGroup);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
         
-        // TODO: Create helper function to check exisiting groups codes to ensure random one does not already exist
-        private bool GenerateClassCode()
-        {
-          return false;
-        }
-
         private bool ClassGroupExists(Guid id)
         {
-            return _context.ClassGroup.Any(e => e.Id == id);
+            return _context.ClassGroups.Any(e => e.Id == id);
         }
     }
 }

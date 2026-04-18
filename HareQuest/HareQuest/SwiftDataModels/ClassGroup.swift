@@ -10,20 +10,23 @@ import SwiftData
 import Combine
 
 @Model
-class ClassGroup: ObservableObject {
-	var id: UUID
+final class ClassGroup {
+	@Attribute(.unique) var id: UUID
 	var teacherId: UUID
 	var className: String
 	var classCode: String
 	var classLevel: String
 	
+	var students: [Student]?
+	
 
 	
-	init(id: UUID, teacherId: UUID, className: String, classLevel: String, classCode: String) {
+	init(id: UUID, teacherId: UUID, className: String, classCode: String, classLevel: String, students: [Student]?) {
 		self.id = id
 		self.teacherId = teacherId
 		self.className = className
-		self.classLevel = classLevel
 		self.classCode = classCode
+		self.classLevel = classLevel
+		self.students = students
 	}
 }

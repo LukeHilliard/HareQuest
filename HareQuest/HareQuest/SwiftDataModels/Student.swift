@@ -1,5 +1,5 @@
 //
-//  ParentChild.swift
+//  Student.swift
 //  HareQuest
 //
 //  Created by Luke Hilliard on 26/03/2026.
@@ -10,7 +10,7 @@ import SwiftData
 import Combine
 
 @Model
-class ParentChild: ObservableObject {
+final class Student {
 	var id: UUID
 	var name: String
 	var classGroup: ParentsCornerController.ChildClass

@@ -1,6 +1,6 @@
 namespace API.Models
 {
-  public class ClassGroup
+  public class ClassGroups
   {
     public Guid Id { get; set; }
     public Guid TeacherId { get; set; }

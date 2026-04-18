@@ -25,6 +25,7 @@ struct ClassGroupResponse: Codable {
 	let status: Int
 	let message: String
 	let success: Bool
+	let teacherId: UUID
 	let className: String
 	let classCode: String
 	let classLevel: String

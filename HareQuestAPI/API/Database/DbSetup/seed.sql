@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS ClassStudents;
 DROP TABLE IF EXISTS ClassGroups;
+DROP TABLE IF EXISTS ShopItem;
 DROP TABLE IF EXISTS Users;
 
 CREATE TABLE Users
@@ -17,7 +18,7 @@ CREATE TABLE Users
 CREATE TABLE ClassGroups
 (
     Id          CHAR(36)     NOT NULL,
-    TeacherId   VARCHAR(36)  NOT NULL,
+    TeacherId   CHAR(36)     NOT NULL,
     ClassName   VARCHAR(100) NOT NULL,
     ClassLevel  VARCHAR(4)   NOT NULL,
     ClassCode   VARCHAR(6)   NOT NULL,

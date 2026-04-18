@@ -35,7 +35,7 @@ struct AddChildView: View {
 					dismiss()
 				}.buttonStyle(.bordered)
 				Button("Add Child") {
-					modelContext.insert(ParentChild(id: UUID(), name: controller.childName, classGroup: controller.childClass))
+					modelContext.insert(Student(id: UUID(), name: controller.childName, classGroup: controller.childClass))
 				}.buttonStyle(.bordered)
 			}
 			Spacer()
