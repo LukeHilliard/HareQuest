@@ -20,10 +20,10 @@ class ParentsCornerController: ObservableObject {
 	@Published var currentRoute: PCornerRoute?
 	
 	/// UI Elements
-	@Published var parentsChildren: [ParentChild]?
+	@Published var parentsChildren: [Student]?
 	@Published var hasChildren = false
 	
-		/// AddChild Elements
+	/// AddChild Elements
 	enum ChildClass: String, Codable, CaseIterable, Hashable {
 		case first = "1st"
 		case second = "2nd"

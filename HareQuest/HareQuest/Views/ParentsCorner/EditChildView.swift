@@ -13,7 +13,7 @@ struct EditChildView: View {
 	@Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
 	@Environment(\.modelContext) private var modelContext
 	
-	@StateObject var child: ParentChild
+	@State var child: Student
 	
 	
 	var body: some View {
@@ -39,7 +39,7 @@ struct EditChildView: View {
 					dismiss()
 				}.buttonStyle(.bordered)
 				Button("Update Child") {
-//					modelContext.insert(ParentChild(id: UUID(), name: controller.childName, classGroup: controller.childClass))
+
 				}.buttonStyle(.bordered)
 			}
 			Spacer()
@@ -51,6 +51,6 @@ struct EditChildView: View {
 #Preview {
     EditChildView(
         controller: ParentsCornerController(),
-        child: ParentChild(id: UUID(), name: "Test", classGroup: .first)
+        child: Student(id: UUID(), name: "Test", classGroup: .first)
     )
 }

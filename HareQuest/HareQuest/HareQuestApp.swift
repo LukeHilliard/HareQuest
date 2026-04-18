@@ -13,7 +13,8 @@ struct HareQuestApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
 					User.self,
-					ParentChild.self
+					Student.self,
+					ClassGroup.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

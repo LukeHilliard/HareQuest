@@ -35,7 +35,7 @@ class ProfileController: ObservableObject {
 	
 	func openHomeView() { currentRoute = .home }
 	
-	func logout() {	sessionManager.clear() }
+	func logout() {	sessionManager.logout() }
 
 	
 }
