@@ -18,16 +18,20 @@ struct LandingView: View {
             
 			VStack {
                 Text("Welcome to Hare Quest")
+                    .padding()
                     .font(.title)
                     .foregroundStyle(.accentTitle)
                     .fontWeight(.bold)
                
 				Button("Login") {
 					controller.openLoginView()
-				}.buttonStyle(.bordered)
+				}
+                .buttonStyle(DefaultButtonStyle())
+                            
+                
 				Button("Register") {
 					controller.openRegisterView()
-				}.buttonStyle(.bordered)
+                }.foregroundStyle(.black)
 			}
 			.navigationDestination(item: $controller.currentRoute) { route in
 				switch route {
