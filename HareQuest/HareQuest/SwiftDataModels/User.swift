@@ -17,9 +17,9 @@ final class User {
 	var role: String
 	
 	
-	/// This relationship only applies to users who's role = 'parent' | One User to Many ParentChild
-	@Relationship(deleteRule: .cascade, inverse: \ParentChild.parent)
-	var parentChildren: [ParentChild] = []
+	/// This relationship only applies to users who's role = 'parent' | One User to Many Student
+	@Relationship(deleteRule: .cascade, inverse: \Student.parent)
+	var students: [Student] = []
 	
 	init(id: UUID, name: String, email: String, role: String) {
 		self.id = id

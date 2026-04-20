@@ -15,3 +15,4 @@
 - NSError for domain error codes - https://developer.apple.com/documentation/foundation/nserror
 - Adding borders to Rectandles with .overlay - https://stackoverflow.com/questions/71744888/how-to-make-a-swiftui-view-with-rounded-corners-and-a-border
 - Gesture actions in SwiftUI - https://developer.apple.com/documentation/swiftui/view/swipeactions(edge:allowsfullswipe:content:)
+- @Query with a filter - https://developer.apple.com/documentation/swiftdata/filtering-and-sorting-persistent-data

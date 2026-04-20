@@ -9,19 +9,39 @@ import SwiftUI
 
 struct HomeView: View {
 	@StateObject private var controller = HomeController()
-
 	
 	var body: some View {
 		
 		
 		// TODO: Handle different tabs based on parent/teacher role
-		TabView(selection: $controller.selectedTab) {
-			Tab("Parent's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.parentsCorner) { ParentsCornerView() }
-			Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) { }
-			Tab("Profile", systemImage: "person.crop.circle", value: HomeController.HomeTabs.profile) { ProfileView() }
+		switch controller.role {
+		case "parent":
+			if let identifier = controller.sessionManager.identifier {
+				Text(identifier.uuidString)
+				TabView(selection: $controller.selectedTab) {
+					Tab("Parent's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.parentsCorner) { ParentsCornerView() }
+					Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) { }
+					Tab("Profile", systemImage: "person.crop.circle", value: HomeController.HomeTabs.profile) { ProfileView() }
+				}
+			}
+			
+		case "teacher":
+			if let identifier = controller.sessionManager.identifier {
+				Text(identifier.uuidString)
+				TabView(selection: $controller.selectedTab) {
+					Tab("Teacher's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.teachersCorner) { TeachersCornerView(teacherId: identifier) }
+					Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) { }
+					Tab("Profile", systemImage: "person.crop.circle", value: HomeController.HomeTabs.profile) { ProfileView() }
+				}
+			}
+		default:
+			// TODO: check this handes correctly. If no role is found, clear the users session and logout
+			Text("No role found")
+			Button("Logout") {
+				controller.sessionManager.logout()
+			}
 		}
 		
-	
 	}
 }
 

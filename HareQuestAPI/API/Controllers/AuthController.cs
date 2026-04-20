@@ -129,6 +129,7 @@ namespace API.Controllers
         status = 200,
         accessToken = token,
         userId = user.Id,
+        role = user.Role,
         message = $"User {user.Id} Logged In",
         success = true
       });

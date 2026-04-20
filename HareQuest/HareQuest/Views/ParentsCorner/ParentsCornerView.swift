@@ -11,7 +11,7 @@ import SwiftData
 struct ParentsCornerView: View {
 	@StateObject private var controller = ParentsCornerController()
 	@Environment(\.modelContext) private var modelContext
-	@Query(sort: \ParentChild.name, order: .forward) var children: [ParentChild]
+	@Query(sort: \Student.name, order: .forward) var children: [Student]
 
 	var body: some View {
 		Header(title: "Parents Corner", backgroundColor: Color.blue)
