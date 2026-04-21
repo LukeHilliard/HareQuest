@@ -14,44 +14,86 @@ struct RegisterView: View {
 	var body: some View {
 		VStack {
 			Text("Register")
-				.font(.title)
+				.font(.largeTitle)
+                .foregroundStyle(.secondaryTitle)
 				.bold()
 				.padding(.bottom)
 			
 			TextField("Name", text: $controller.name)
-							.textFieldStyle(.roundedBorder)
-							.keyboardType(.default)
-							.autocapitalization(.none)
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(50)
+                .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+                .padding(.bottom)
+                .autocapitalization(.none)
 			
 			TextField("Email", text: $controller.email)
-							.textFieldStyle(.roundedBorder)
-							.keyboardType(.emailAddress)
-							.autocapitalization(.none)
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(50)
+                .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+                .padding(.bottom)
+                .autocapitalization(.none)
 			
 			SecureField("Password", text: $controller.password)
-							.textFieldStyle(.roundedBorder)
-							.autocapitalization(.none)
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(50)
+                .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+               
+                .autocapitalization(.none)
 			
-			Picker("Role", selection: $controller.role) {
-				ForEach(RegisterController.Role.allCases, id: \.self) { role in
-					Text(role.rawValue)
-				}
-			}.buttonStyle(.bordered)
+            HStack {
+                Text("I am a")
+                    .font(.title3)
+                Picker("Role", selection: $controller.role) {
+                    ForEach(RegisterController.Role.allCases, id: \.self) { role in
+                        Text(role.rawValue).tag(role)
+                          
+                    }
+                }
+                .font(.headline)
+                
+                .pickerStyle(.segmented)
+                .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:3)
+               
+              
+            }.padding()
 
 
-				HStack {
-					Button("Register") {
-						Task { 
-							try await controller.register()
-						}
-					}.buttonStyle(.bordered)
+			
+            Button("Register") {
+                Task {
+                    try await controller.register()
+                }
+            }.buttonStyle(SecondaryButtonStyle())
+                    
 					
-					Button("Return") {
-						dismiss()
-					}.buttonStyle(.bordered)
-				}
-			Spacer()
-		}
+               
+				
+            HStack {
+                Text("Already have an account?")
+                Button("Log in") {
+                    controller.openLoginView()
+                }
+                
+                .foregroundStyle(.secondaryTitle)
+            }
+            .padding()
+		
+        }.padding()
 		.navigationDestination(item: $controller.currentRoute) { route in
 			switch route {
 					case .login:

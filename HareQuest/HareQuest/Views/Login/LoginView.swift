@@ -36,7 +36,6 @@ struct LoginView: View {
                            
 			
 			SecureField("Password", text: $controller.password)
-            
                 .font(.title3)
                 .fontWeight(.bold)
                 .padding()

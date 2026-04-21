@@ -29,7 +29,7 @@ struct LandingView: View {
                         .fill(Color.white)
                         .frame(height: 30)
                         .shadow(color: Color.black.opacity(0.3),
-                                radius: 20, x:0, y:-129)
+                                radius: 20, x:0, y:-130)
                         .padding(0)
                     VStack {
                         
