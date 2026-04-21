@@ -70,7 +70,7 @@ struct RegisterView: View {
                 .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:3)
                
               
-            }.padding()
+            }.padding(.bottom)
 
 
 			
