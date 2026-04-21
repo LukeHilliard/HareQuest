@@ -17,6 +17,8 @@ class LoginController: ObservableObject {
 	enum LoginRoute: Hashable {
 		case landing
 		case home
+        case register
+
 	}
 	@Published var currentRoute: LoginRoute?
 	
@@ -29,7 +31,7 @@ class LoginController: ObservableObject {
 	private let sessionManager = SessionManager.shared
 	private let keychain = KeychainSwift()
 	
-	
+    func openRegisterView() { currentRoute = .register }
 	func openHomeView() { currentRoute = .home }
 	func openLandingView() { currentRoute = .landing }
 	

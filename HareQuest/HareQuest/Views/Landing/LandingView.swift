@@ -17,8 +17,8 @@ struct LandingView: View {
                 Image("LandingImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity)
-                    .ignoresSafeArea(edges: .top)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea(edges: .all)
                     .padding(0)
                     
               
