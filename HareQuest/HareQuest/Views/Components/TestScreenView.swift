@@ -11,8 +11,8 @@ struct TestScreenView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         
-        Button("Harper's Treasure Hunt"){}
-            .buttonStyle(GameButtonStyle(color: .mainButton ))
+        Button("Hareobics with Harper"){}
+            .buttonStyle(GameButtonStyle(color: .secondaryButton, gameIcon: Image("HareobicsImage")))
     }
 }
 

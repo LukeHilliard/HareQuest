@@ -9,21 +9,23 @@ import SwiftUI
 
 struct GameButtonStyle: ButtonStyle {
     var color: Color = .blue
-    var imageName: String = "DefaultImage"
+    var gameIcon: Image = Image("DefaultImage")
 
     func makeBody(configuration: Configuration) -> some View {
         HStack{
           
             configuration.label
-                .font(.system(size: 24, weight: .heavy, design: .rounded))
+                .font(.system(size: 30, weight: .heavy, design: .rounded))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
-       
-            Image(imageName)
+   Spacer()
+            gameIcon
                 .resizable()
                 .scaledToFit()
-                .frame(width: 130, height: 130)
+                .frame(width: 140, height: 140)
+               
+                
            
             
         }
