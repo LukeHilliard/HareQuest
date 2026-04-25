@@ -23,7 +23,10 @@ struct TestScreenView: View {
        // Button("Buy"){}
          //   .buttonStyle(BuyButton(coinsGain: 100))
         
-        Wallet(money: 200)
+       // Wallet(money: 200)
+        Pet()
+            .frame(width: 500)
+            .padding()
         
     }
 }
