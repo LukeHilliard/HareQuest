@@ -17,11 +17,13 @@ struct TestScreenView: View {
        // Button("Jump"){}
          //.buttonStyle(ChallengeButton(coinsGain: 100))
         
-        ShopItem(   price: 40,
-                    imageName: "LandingImage")
+        //ShopItem(   price: 40,
+                  //  imageName: "LandingImage")
         
        // Button("Buy"){}
          //   .buttonStyle(BuyButton(coinsGain: 100))
+        
+        Wallet(money: 200)
         
     }
 }
