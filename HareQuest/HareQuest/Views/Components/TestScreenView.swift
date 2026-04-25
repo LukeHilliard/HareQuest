@@ -11,8 +11,18 @@ struct TestScreenView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         
-        Button("Hareobics with Harper"){}
-            .buttonStyle(GameButtonStyle(color: .secondaryButton, gameIcon: Image("HareobicsImage")))
+      // Button("Hareobics with Harper"){}
+         // .buttonStyle(GameButtonStyle(color: .secondaryButton, gameIcon: Image("HareobicsImage")))
+        
+       // Button("Jump"){}
+         //.buttonStyle(ChallengeButton(coinsGain: 100))
+        
+        ShopItem(   price: 40,
+                    imageName: "LandingImage")
+        
+       // Button("Buy"){}
+         //   .buttonStyle(BuyButton(coinsGain: 100))
+        
     }
 }
 
