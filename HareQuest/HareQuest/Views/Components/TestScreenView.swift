@@ -24,9 +24,20 @@ struct TestScreenView: View {
          //   .buttonStyle(BuyButton(coinsGain: 100))
         
        // Wallet(money: 200)
-        Pet()
-            .frame(width: 500)
-            .padding()
+       // Pet()
+         //   .frame(width: 500)
+          //  .padding()
+        
+        KidCard(
+            
+            studentName: "Maya",
+            studentLastName: "O'connor",
+            year: "Year 1-2",
+            gradedBy: "Victoria McNeil",
+            grade: 9,
+            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
+        )
+       
         
     }
 }
