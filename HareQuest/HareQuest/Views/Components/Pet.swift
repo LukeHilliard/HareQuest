@@ -7,10 +7,10 @@
 
 import SwiftUI
 struct Pet: View {
-    
+    var userPet: Image = Image("PetImage")
     //TODO Make accesories work
     var body: some View {
-        Image("PetImage")
+      userPet
             .resizable()
             .scaledToFit()
        

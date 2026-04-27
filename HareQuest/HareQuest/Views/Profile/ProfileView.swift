@@ -13,7 +13,7 @@ struct ProfileView: View {
     var body: some View {
         VStack()
         {
-            Text("Teacher") // TODO fit actual role
+            Text("Teacher") // TODO fit actual role or name
                 .font(.system(size: 78, weight: .heavy, design: .rounded))
                 .foregroundColor(.black.opacity(0.85))
                 .padding(.vertical)
