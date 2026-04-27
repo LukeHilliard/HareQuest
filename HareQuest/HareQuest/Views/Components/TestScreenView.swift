@@ -29,7 +29,6 @@ struct TestScreenView: View {
           //  .padding()
         
         KidCard(
-            
             studentName: "Maya",
             studentLastName: "O'connor",
             year: "Year 1-2",
