@@ -19,8 +19,8 @@ final class RegisterController: ObservableObject {
 	}
 	
 	enum Role: String, Codable, CaseIterable {
-		case parent = "Parent" /// default
-		case teacher = "Teacher"
+		case parent = "parent" /// default
+		case teacher = "teacher"
 	}
 	/// Input elements
 	@Published var name: String = ""

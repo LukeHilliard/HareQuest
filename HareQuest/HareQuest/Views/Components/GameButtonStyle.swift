@@ -15,7 +15,7 @@ struct GameButtonStyle: ButtonStyle {
         HStack{
           
             configuration.label
-                .font(.system(size: 30, weight: .heavy, design: .rounded))
+                .font(.system(size: 28, weight: .heavy, design: .rounded))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
@@ -23,7 +23,7 @@ struct GameButtonStyle: ButtonStyle {
             gameIcon
                 .resizable()
                 .scaledToFit()
-                .frame(width: 140, height: 140)
+                .frame(width: 120, height: 120)
                
                 
            

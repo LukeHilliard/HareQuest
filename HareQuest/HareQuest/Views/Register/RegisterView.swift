@@ -65,7 +65,7 @@ struct RegisterView: View {
                     }
                 }
                 .font(.headline)
-                
+                .padding(.vertical)
                 .pickerStyle(.segmented)
                 .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:3)
                

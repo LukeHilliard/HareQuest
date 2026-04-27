@@ -16,11 +16,16 @@ struct HomeView: View {
 		// TODO: Handle different tabs based on parent/teacher role
 		switch controller.role {
 		case "parent":
+            
 			if let identifier = controller.sessionManager.identifier {
-				Text(identifier.uuidString)
+			 //Text(identifier.uuidString)
+                
 				TabView(selection: $controller.selectedTab) {
 					Tab("Parent's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.parentsCorner) { ParentsCornerView() }
-					Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) { }
+					Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) {
+                        ParentHomeScreenView()
+                        
+                    }
 					Tab("Profile", systemImage: "person.crop.circle", value: HomeController.HomeTabs.profile) { ProfileView() }
 				}
 			}
