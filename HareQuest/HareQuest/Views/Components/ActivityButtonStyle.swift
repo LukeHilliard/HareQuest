@@ -1,15 +1,15 @@
 //
-//  GameButtonStyle.swift
+//  ActivityButtonStyle.swift
 //  HareQuest
 //
-//  Created by Mariela Machuca Palmeros on 25/04/2026.
+//  Created by Mariela Machuca Palmeros on 27/04/2026.
 //
 
 import SwiftUI
 
-struct GameButtonStyle: ButtonStyle {
+struct ActivityButtonStyle: ButtonStyle {
     var color: Color = .blue
-    var gameIcon: Image = Image("DefaultImage")
+   
 
     func makeBody(configuration: Configuration) -> some View {
         HStack{
@@ -19,11 +19,8 @@ struct GameButtonStyle: ButtonStyle {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
-   Spacer()
-            gameIcon
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120, height: 120)
+
+   
                
                 
            
@@ -33,7 +30,7 @@ struct GameButtonStyle: ButtonStyle {
             .font(.system(.title3, design: .rounded, weight: .bold))
             .foregroundColor(.white)
             .padding(.horizontal, 40)
-            .padding(.vertical, 15)
+            .padding(.vertical, 50)
             .frame(maxWidth: .infinity)
             .background {
                 RoundedRectangle(cornerRadius: 50)
