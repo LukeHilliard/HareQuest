@@ -15,6 +15,7 @@ final class RegisterController: ObservableObject {
 	enum RegisterRoute: Hashable {
 		case landing
 		case login
+        
 	}
 	
 	enum Role: String, Codable, CaseIterable {

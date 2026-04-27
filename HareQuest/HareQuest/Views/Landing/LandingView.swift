@@ -8,41 +8,74 @@
 import SwiftUI
 
 struct LandingView: View {
-	@StateObject private var controller = LandingController()
-	
-
-	var body: some View {
+    @StateObject private var controller = LandingController()
     
-           
-		NavigationStack { /// Parent navigation stack, this is passed to all child view (pretty much every view)
+    var body: some View {
+        NavigationStack { /// Parent navigation stack, this is passed to all child view (pretty much every view)
+            VStack {
+                
+                Image("LandingImage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea(edges: .all)
+                    .padding(0)
+                    
+              
+                
+                ZStack {
+                    
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(height: 30)
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 20, x:0, y:-130)
+                        .padding(0)
+                    VStack {
+                        
+                        Text("Welcome to Hare Quest")
+                            .padding()
+                            .font(.title)
+                            .foregroundStyle(.accentTitle)
+                            .fontWeight(.bold)
+                        
+                        
+                        Button("Login") {
+                            controller.openLoginView()
+                        }
+                        
+                        .buttonStyle(DefaultButtonStyle())
+                        
+                        
+                        
+                        HStack {
+                            Text("New to the burrow?")
+                            Button("Register") {
+                                controller.openRegisterView()
+                            }
+                            
+                            .foregroundStyle(.accentTitle)
+                        }
+                        .padding()
+                    }
+                }
+                
+              
+            }
+                
+                .navigationDestination(item: $controller.currentRoute) { route in
+                    switch route {
+                    case .login:
+                        LoginView()
+                    case .register:
+                        RegisterView()
+                    }
+                }
             
-			VStack {
-                Text("Welcome to Hare Quest")
-                    .font(.title)
-                    .foregroundStyle(.accentTitle)
-                    .fontWeight(.bold)
-               
-				Button("Login") {
-					controller.openLoginView()
-				}.buttonStyle(.bordered)
-				Button("Register") {
-					controller.openRegisterView()
-				}.buttonStyle(.bordered)
-			}
-			.navigationDestination(item: $controller.currentRoute) { route in
-				switch route {
-					case .login:
-					LoginView()
-				case .register:
-					RegisterView()
-				}
-			}
-			
-		}.navigationBarBackButtonHidden(true)
-		
-	}
-}
-
+        }
+        .navigationBarBackButtonHidden(true)
+    }}
+    
 #Preview {
     LandingView()
 }
