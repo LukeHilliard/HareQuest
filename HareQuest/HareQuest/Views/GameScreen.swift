@@ -26,7 +26,6 @@ struct GameScreen: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 400)
                 .clipped()
-            
             Pet(userPet: userPet)
                 .frame(height: 300)
             HStack{
