@@ -43,6 +43,7 @@ struct AddClassView: View {
 							}
 					}.buttonStyle(.bordered)
 				}
+                .padding()
 				HStack {
 					Button("Cancel") {
 						dismiss()

@@ -46,7 +46,7 @@ struct TeachersCornerView: View {
                     
                     if classGroups.isEmpty == false {
                         NavigationLink(destination: AddClassView(controller: controller)) {
-                            Text("Create Class")
+                            Text("Add")
                             Image(systemName: "plus")
                         }.buttonStyle(CreateButtonStyle())
                     }
