@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameScreen: View {
+struct GameScreenView: View {
     var userMoney: Int = 0
     var userPet: Image = Image("PetImage")
     var body: some View {
@@ -49,5 +49,5 @@ struct GameScreen: View {
 }
 
 #Preview {
-    GameScreen()
+    GameScreenView()
 }
