@@ -10,7 +10,8 @@ import SwiftUI
 struct ClassView: View {
 	
     var body: some View {
-			Header(title: "Teacher's Corner", backgroundColor: Color.brown)
+			Button("Teacher's Corner"){}
+            .buttonStyle(HeaderStyle(color: .secondaryButton))
     }
 }
 

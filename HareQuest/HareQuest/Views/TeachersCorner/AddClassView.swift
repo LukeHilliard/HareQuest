@@ -21,14 +21,22 @@ struct AddClassView: View {
 			
 			if !codeIsGenerated {
 				HStack {
-					Text("Class Name")
-					TextField("Name", text: $controller.name)
-							.textFieldStyle(.roundedBorder)
-							.keyboardType(.default)
-							.textInputAutocapitalization(.never)
+				
+					TextField("Class Name", text: $controller.name)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.white)
+                        .cornerRadius(50)
+                        .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                        .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+                       
 				}
 				HStack {
-					Text("Class")
+                    Text("Class")
+                        .font(.system(size: 28, weight: .semibold, design: .rounded))
+                    
 					Picker("Grade", selection: $controller.classLevel) {
 						ForEach(TeachersCornerController.ClassLevel.allCases, id: \.self) { role in
 							Text(role.rawValue)
@@ -36,10 +44,10 @@ struct AddClassView: View {
 					}.buttonStyle(.bordered)
 				}
 				HStack {
-					Button("Return") {
+					Button("Cancel") {
 						dismiss()
-					}.buttonStyle(.bordered)
-					Button("Create Class Group") {
+					}.buttonStyle(ReturnButtonStyle())
+					Button("Create Class") {
 						Task {
 							do {
 								let createdClass = try await controller.createClassGroup()
@@ -62,7 +70,7 @@ struct AddClassView: View {
 							}
 							
 						}
-					}.buttonStyle(.bordered)
+					}.buttonStyle(CreateButtonStyle())
 				}
 				
 			} else {
@@ -75,7 +83,7 @@ struct AddClassView: View {
 			}
 			Spacer()
 			
-		}
+        }.padding()
 		.navigationBarBackButtonHidden(true)
 	}
 }

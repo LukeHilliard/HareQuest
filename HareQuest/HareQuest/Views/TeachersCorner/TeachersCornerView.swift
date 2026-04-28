@@ -46,8 +46,9 @@ struct TeachersCornerView: View {
                     
                     if classGroups.isEmpty == false {
                         NavigationLink(destination: AddClassView(controller: controller)) {
-                            Text("Add Student")
-                        }.buttonStyle(DefaultButtonStyle())
+                            Text("Create Class")
+                            Image(systemName: "plus")
+                        }.buttonStyle(CreateButtonStyle())
                     }
                 }}
                 
@@ -106,9 +107,10 @@ struct TeachersCornerView: View {
                     
                 } else {
                     Spacer()
-                    Text("No students found").font(.system(size: 20, weight: .semibold, design: .rounded)).padding(.vertical)
+                    Text("No Class found").font(.system(size: 20, weight: .semibold, design: .rounded)).padding(.vertical)
                     NavigationLink(destination: AddClassView(controller: controller)){
-                    Text("Add Student")
+                    Text("Create Class")
+                        Image(systemName: "plus")
                 }.buttonStyle(DefaultButtonStyle())
                    Spacer()
                 }
