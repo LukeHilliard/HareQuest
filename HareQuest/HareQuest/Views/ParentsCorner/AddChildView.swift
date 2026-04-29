@@ -15,31 +15,37 @@ struct AddChildView: View {
 	var body: some View {
 		VStack(spacing: 16) {
 			HStack {
-				Text("My childs name is")
-				TextField("Name", text: $controller.childName)
-						.textFieldStyle(.roundedBorder)
-						.keyboardType(.default)
-						.textInputAutocapitalization(.never)
+				
+				TextField("My child's name is", text: $controller.childName)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .cornerRadius(50)
+                    .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                    .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+                
 			}
 			HStack {
-				Text("They are in")
+				Text("They are in").font(.system(size: 28, weight: .semibold, design: .rounded))
 				Picker("Role", selection: $controller.childClass) {
 					ForEach(ParentsCornerController.ChildClass.allCases, id: \.self) { role in
 								Text(role.rawValue)
 						}
 				}.buttonStyle(.bordered)
-				Text("Class")
+                Text("Class").font(.system(size: 28, weight: .semibold, design: .rounded)).padding(.vertical)
 			}
 			HStack {
 				Button("Return") {
 					dismiss()
-				}.buttonStyle(.bordered)
+				}.buttonStyle(ReturnButtonStyle())
 				Button("Add Child") {
 					modelContext.insert(Student(id: UUID(), name: controller.childName, classGroup: controller.childClass))
-				}.buttonStyle(.bordered)
+				}.buttonStyle(CreateButtonStyle())
 			}
 			Spacer()
-		}
+        }.padding()
 		.navigationBarBackButtonHidden(true)
 	}
 }

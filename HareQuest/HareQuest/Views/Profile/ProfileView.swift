@@ -11,9 +11,23 @@ struct ProfileView: View {
 	@StateObject private var controller = ProfileController()
 	
     var body: some View {
-			Button("Logout") {
-				controller.logout()
-			}
+        VStack()
+        {
+            Text("Teacher") // TODO fit actual role or name
+                .font(.system(size: 78, weight: .heavy, design: .rounded))
+                .foregroundColor(.black.opacity(0.85))
+                .padding(.vertical)
+            Text("We are still working on this screen, be on the lookout for updates!").multilineTextAlignment(.center)
+                .font(.title).padding(.bottom)
+            Button() {
+                
+                controller.logout()
+            }label: {
+                Text("Log out")
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+            }
+                .buttonStyle(SecondaryButtonStyle())
+        }.padding()
     }
 }
 

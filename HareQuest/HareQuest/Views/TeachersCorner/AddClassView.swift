@@ -21,25 +21,34 @@ struct AddClassView: View {
 			
 			if !codeIsGenerated {
 				HStack {
-					Text("Class Name")
-					TextField("Name", text: $controller.name)
-							.textFieldStyle(.roundedBorder)
-							.keyboardType(.default)
-							.textInputAutocapitalization(.never)
+				
+					TextField("Class Name", text: $controller.name)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.white)
+                        .cornerRadius(50)
+                        .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                        .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
+                       
 				}
 				HStack {
-					Text("Class")
+                    Text("Class")
+                        .font(.system(size: 28, weight: .semibold, design: .rounded))
+                    
 					Picker("Grade", selection: $controller.classLevel) {
 						ForEach(TeachersCornerController.ClassLevel.allCases, id: \.self) { role in
 							Text(role.rawValue)
 							}
 					}.buttonStyle(.bordered)
 				}
+                .padding()
 				HStack {
-					Button("Return") {
+					Button("Cancel") {
 						dismiss()
-					}.buttonStyle(.bordered)
-					Button("Create Class Group") {
+					}.buttonStyle(ReturnButtonStyle())
+					Button("Create Class") {
 						Task {
 							do {
 								let createdClass = try await controller.createClassGroup()
@@ -62,20 +71,42 @@ struct AddClassView: View {
 							}
 							
 						}
-					}.buttonStyle(.bordered)
+					}.buttonStyle(CreateButtonStyle())
 				}
 				
 			} else {
-				Text("Class Group successfully created.")
-				Text("Code generated! Share with students")
-				Text(classCode)
-				Button("Continue") {
-					dismiss()
-				}
+                
+                    Text("Class Group successfully created!")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 16, weight: .regular, design: .rounded))
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity)
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.mainButton.opacity(0.1))
+                                .shadow(color: .mainButton.opacity(0.22), radius: 8, x: 4, y: 6)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.mainButton, lineWidth: 2)
+                                }
+                               
+                        }
+                        .padding()
+              
+                         Text("Share the class code with your students:")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 24, weight: .semibold, design: .rounded))
+                    Text(classCode)
+                        .font(.system(size: 36, weight: .heavy, design: .default)).padding(.top, 2)
+                    Button("Continue") {
+                        dismiss()
+                    }.buttonStyle(DefaultButtonStyle())
+                
 			}
 			Spacer()
 			
-		}
+        }.padding()
 		.navigationBarBackButtonHidden(true)
 	}
 }

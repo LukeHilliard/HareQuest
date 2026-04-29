@@ -14,19 +14,25 @@ struct ChallengeButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         
         HStack{
-          
-            configuration.label
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
-                .foregroundColor(.darkText)
-                .multilineTextAlignment(.center)
+            
+                configuration.label
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(.darkText)
+                    .multilineTextAlignment(.leading)
                 .minimumScaleFactor(0.7)
    Spacer()
             Image("CoinImage")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 50, height: 50)
+                .frame(width: 40, height: 40)
+                .padding(.leading, 5)
             
-            Text(String(coinsGain))
+            HStack {
+                Text(String(coinsGain))
+                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+            }.frame(width: 50)
+            
+               
             
                
                 
@@ -36,7 +42,7 @@ struct ChallengeButton: ButtonStyle {
             .shadow(color: .black.opacity(1), radius: 100, x: 0, y: 20)
             .font(.system(.title3, design: .rounded, weight: .bold))
             .padding(.horizontal, 40)
-            .padding(.vertical, 15)
+            .padding(.vertical, 20)
             .frame(maxWidth: .infinity)
             .background {
                 RoundedRectangle(cornerRadius: 20)

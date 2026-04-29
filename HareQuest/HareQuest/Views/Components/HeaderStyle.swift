@@ -22,7 +22,7 @@ struct HeaderStyle: ButtonStyle {
                 .padding(.top, 40)
 
         }
-            .shadow(color: .black.opacity(1), radius: 100, x: 0, y: 20)
+          
             .font(.system(.title3, design: .rounded, weight: .bold))
             .foregroundColor(.white)
             .padding(.horizontal, 40)
@@ -30,8 +30,9 @@ struct HeaderStyle: ButtonStyle {
             .frame(maxWidth: .infinity)
             .background {
               Rectangle()
+
                     .foregroundColor(color)
-                    .shadow(color: .black.opacity(0.22), radius: 8, x: 4, y: 6)
+                    
             }
             
     }

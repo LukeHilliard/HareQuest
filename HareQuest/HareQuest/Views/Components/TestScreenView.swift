@@ -28,15 +28,24 @@ struct TestScreenView: View {
          //   .frame(width: 500)
           //  .padding()
         
-        KidCard(
-            studentName: "Maya",
+     //   KidCard(
+      //      studentName: "Maya",
+      //      studentLastName: "O'connor",
+       //     year: "Year 1-2",
+        //    gradedBy: "Victoria McNeil",
+       //     grade: 9,
+        //    comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
+       // )
+        
+      //  Button("Buy"){}
+         //   .buttonStyle(FilterButtonStyle(status: .mainButton))
+        
+      StudentCard(
+          studentName: "Maya",
             studentLastName: "O'connor",
-            year: "Year 1-2",
-            gradedBy: "Victoria McNeil",
-            grade: 9,
-            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
-        )
-       
+         status: "To Grade",
+          statusColor: .tertiaryButton
+          )
         
     }
 }
