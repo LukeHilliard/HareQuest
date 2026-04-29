@@ -13,10 +13,10 @@ struct Wallet: View {
             Image("CoinImage")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 90, height: 90)
+                .frame(maxHeight: 80)
             
             Text("\(money)")
-                .font(.system(size: 78, weight: .medium, design: .rounded))
+                .font(.system(size: 32, weight: .medium, design: .rounded))
                 .foregroundColor(.black.opacity(0.85))
         }
         .padding(.horizontal, 20)

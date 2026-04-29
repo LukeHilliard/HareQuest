@@ -48,7 +48,7 @@ struct ParentHomeScreenView: View {
                     .buttonStyle(GameButtonStyle(color: .mainButton, gameIcon: Image("HuntImage"))).padding(.top)
                 
                 Button("Burrow Adventures"){}
-                    .buttonStyle(GameButtonStyle(color: .tertiaryButton, gameIcon: Image("HuntImage"))).padding(.top)
+                    .buttonStyle(GameButtonStyle(color: .tertiaryButton, gameIcon: Image("AdventureImage"))).padding(.top)
                 Button("Hareobics with Harper"){}
                     .buttonStyle(GameButtonStyle(color: .secondaryButton, gameIcon: Image("HareobicsImage"))).padding(.top)
             }.padding(.horizontal)

@@ -15,7 +15,7 @@ struct BuyButton: ButtonStyle {
         HStack{
           
             configuration.label
-                .font(.system(size: 40, weight: .heavy, design: .rounded))
+                .font(.system(size: 28, weight: .heavy, design: .rounded))
                 .foregroundColor(.secondaryButton)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
@@ -28,8 +28,8 @@ struct BuyButton: ButtonStyle {
         }
             .shadow(color: .black.opacity(1), radius: 100, x: 0, y: 20)
             .font(.system(.title3, design: .rounded, weight: .bold))
-            .padding(.horizontal, 40)
-            .padding(.vertical, 20)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
             .background {
                 RoundedRectangle(cornerRadius: 20)

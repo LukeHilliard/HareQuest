@@ -41,7 +41,7 @@ struct ProofButtonStyle: ButtonStyle {
         
                 .background(
                     RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.challengeButton)
+                        .fill(Color.shop)
                         .shadow(color: .black.opacity(0.35), radius: 6, x: 5, y: 5)
                 )
                 
