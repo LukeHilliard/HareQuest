@@ -18,32 +18,39 @@ struct EditChildView: View {
 	
 	var body: some View {
 		VStack(spacing: 16) {
-			HStack {
-				Text("My childs name is")
+			VStack {
+				Text("Name")
+                    .font(.system(size: 28, weight: .semibold, design: .rounded))
 				TextField("Name", text: $child.name)
-						.textFieldStyle(.roundedBorder)
-						.keyboardType(.default)
-						.textInputAutocapitalization(.never)
+                    .font(.title3)
+                    .fontWeight(.regular)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .cornerRadius(50)
+                    .shadow(color: Color.secondaryTitle.opacity(0.25), radius: 0, x:0, y:7)
+                    .shadow(color: Color.secondaryTitle.opacity(0.08), radius: 10, x:0, y:-7)
 			}
-			HStack {
-				Text("They are in")
+			VStack {
+                Text("Class").font(.system(size: 28, weight: .semibold, design: .rounded))
 				Picker("Role", selection: $child.classGroup) {
 					ForEach(ParentsCornerController.ChildClass.allCases, id: \.self) { role in
 								Text(role.rawValue)
 						}
 				}.buttonStyle(.bordered)
-				Text("Class")
+				
 			}
 			HStack {
 				Button("Return") {
 					dismiss()
-				}.buttonStyle(.bordered)
-				Button("Update Child") {
+				}.buttonStyle(ReturnButtonStyle())
+				Button("Update") {
 
-				}.buttonStyle(.bordered)
+				}.buttonStyle(CreateButtonStyle())
 			}
 			Spacer()
 		}
+        .padding()
 		.navigationBarBackButtonHidden(true)
 	}
 }

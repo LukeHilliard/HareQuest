@@ -22,12 +22,12 @@ struct UploadPicView: View {
                     .ignoresSafeArea()
             
             VStack(alignment: .center){
-                Button("Jump"){}
+                Button("Jump"){} // This has to be the actual challenge clicked
                     .buttonStyle(ChallengeButton(coinsGain: 100))
                 
                 Button("Start Recording"){
                     
-                }.buttonStyle(ProofButtonStyle(imageName: "ClassroomImage", systemIcon: Image(systemName: "video.fill") )).padding(.vertical)
+                }.buttonStyle(ProofButtonStyle(imageName: "ClassroomImage", systemIcon: Image(systemName: "video.fill") )).padding(.top)
                 
                 Button("Upload your image"){
                     
@@ -36,7 +36,7 @@ struct UploadPicView: View {
             }
             .padding()
                 .padding(.horizontal)
-                .frame(maxWidth: 410)
+                .frame(maxWidth: 420)
             
         }
     }

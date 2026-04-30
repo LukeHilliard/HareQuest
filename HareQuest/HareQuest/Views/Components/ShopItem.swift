@@ -17,28 +17,28 @@ struct ShopItem: View {
                 cardBody
 
                 priceBadge
-                    .offset(y: -80)
+                    .offset(y: -65)
                 
                 Button("Buy"){}
                     .buttonStyle(BuyButton(coinsGain: 100))
-                    .offset(y: 340)
+                    .offset(y: 80)
             }
             .padding(.top, 90)
         }
 
         private var priceBadge: some View {
-            HStack(spacing: 22) {
+            HStack() {
                 Image("CoinImage")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 90, height: 90)
+                    .frame(maxHeight: 40)
 
                 Text("\(price)")
-                    .font(.system(size: 78, weight: .medium, design: .rounded))
+                    .font(.system(size: 28, weight: .medium, design: .rounded))
                     .foregroundColor(.black.opacity(0.85))
             }
-            .padding(.horizontal, 54)
-            .padding(.vertical, 20)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 10)
             .background {
                 Capsule()
                     .fill(.white)
@@ -53,12 +53,12 @@ struct ShopItem: View {
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 330, height: 250)
+                    .frame(maxWidth: 330, maxHeight: 250)
 
                 Spacer()
 
             }
-            .frame(width: 360, height: 415)
+            .frame(maxWidth: 360, maxHeight: 400)
             .background {
                 RoundedRectangle(cornerRadius: 24)
                     .fill(Color(red: 0.78, green: 0.66, blue: 0.43).opacity(0.45))
