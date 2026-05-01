@@ -37,7 +37,7 @@ struct AddChildView: View {
                 Text("Class").font(.system(size: 28, weight: .semibold, design: .rounded)).padding(.vertical)
 			}
 			HStack {
-				Button("Return") {
+				Button("Cancel") {
 					dismiss()
 				}.buttonStyle(ReturnButtonStyle())
 				Button("Add Child") {
