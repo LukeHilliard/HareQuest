@@ -46,9 +46,10 @@ struct ActivityScreenView: View {
                 
                 
             }
-        } .ignoresSafeArea(.all)
+				}.navigationBarBackButtonHidden(true)
+				.ignoresSafeArea(.all)
 
-    }
+		}
     
 }
 
