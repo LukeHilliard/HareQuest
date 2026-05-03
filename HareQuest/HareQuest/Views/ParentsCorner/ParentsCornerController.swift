@@ -23,21 +23,67 @@ class ParentsCornerController: ObservableObject {
 	@Published var parentsChildren: [Student]?
 	@Published var hasChildren = false
 	
-	/// AddChild Elements
-	enum ChildClass: String, Codable, CaseIterable, Hashable {
-		case first = "1st"
-		case second = "2nd"
-		case third = "3rd"
-		case fourth = "4th"
-		case fifth = "5th"
-		case sixth = "6th"
-	}
 	@Published var childName: String = ""
 	@Published var childClass: ChildClass = .first
+	@Published var childClassCode: String = ""
 	
+	// Services
+	@Published var sessionManager = SessionManager.shared
+	private let keychain = KeychainSwift()
+	private let classGroupService = ClassGroupsService()
 	
 	func openAddChildView() { currentRoute = .addChild }
+	
+	func joinClass(studentId: UUID, modelContext: ModelContext) async throws -> Void {
+//		print("STUDENT ID \(studentId)")
 
+		// Retrieve the parent ID from the session. If unavailable, log and return.
+		guard let parentId = sessionManager.getId() else {
+			print("Error: No valid parent identifier in session.")
+			return
+		}
+
+		let joinDetails = JoinClassDto(
+			classCode: self.childClassCode,
+			classLevel: self.childClass,
+			parentId: parentId,
+			studentId: studentId
+		)
+		
+		do {
+			let joinResponse = try await classGroupService.joinClassGroup(joinDetails: joinDetails)
+			switch joinResponse.success {
+			case true:
+				print(joinResponse.message)
+				do {
+
+					let descriptor = FetchDescriptor<ClassGroup>(predicate: #Predicate { $0.id == joinResponse.classGroupId })
+					_ = try modelContext.fetch(descriptor)
+					
+					// TODO: Get ClassGroup details and add to local storage
+				} catch {
+					print("Error updating Students ClassGroup")
+				}
+				
+			case false:
+				print(joinResponse.message)
+			}
+		} catch {
+			print("Error: \(error)")
+		}
+
+//		do {
+//			let joinResponse = try await classGroupService.joinClassGroup(joinDetails: joinDetails)
+//			switch joinResponse.success {
+//			case true:
+//				print(joinResponse.message)
+//			case false:
+//				print(joinResponse.message)
+//			}
+//		} catch {
+//			print("Error: \(error)")
+//		}
+	}
 }
 
 

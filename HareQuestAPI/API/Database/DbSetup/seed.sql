@@ -45,7 +45,7 @@ CREATE TABLE ShopItem
 (
     Id   INT          NOT NULL,
     Name VARCHAR(100) NOT NULL,
-    Cost INT          NOT NULL,
+    Cost INT          NOT NULL
 );
 
     

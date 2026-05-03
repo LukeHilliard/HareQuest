@@ -21,7 +21,11 @@ final class SessionManager: ObservableObject {
 	
 	init() {
 		checkToken()
-		self.identifier = try? getId()
+		if let id = getId() {
+			self.identifier = id
+		} else {
+			self.identifier = nil
+		}
 	}
 	
 	func logout() {
@@ -44,10 +48,10 @@ final class SessionManager: ObservableObject {
 		self.isAuth = true
 	}
 	
-	func getId() throws -> UUID? {
-		if let id = keychain.get("hq_userId") {
-			guard let convertedId = UUID(uuidString: id) else { throw NSError(domain: "Auth", code: 0, userInfo: nil) }
-			return convertedId
+	func getId() -> UUID? {
+		print("Getting ID from Session")
+		if let idString = keychain.get("hq_userId"), let uuid = UUID(uuidString: idString) {
+			return uuid
 		}
 		return nil
 	}
@@ -56,4 +60,11 @@ final class SessionManager: ObservableObject {
 		keychain.set(role, forKey: "hq_role")
 	}
 	
+	func getRole() -> String? {
+		if let role = keychain.get("hq_role") {
+			return role
+		}
+		return nil
+		
+	}
 }

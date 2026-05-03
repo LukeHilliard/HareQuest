@@ -1,4 +1,4 @@
-namespace API.Dtos.ClassGroups
+namespace API.Dtos.ClassGroup
 {
   public class ClassGroupDto
   {

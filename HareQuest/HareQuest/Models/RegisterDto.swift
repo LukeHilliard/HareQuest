@@ -24,7 +24,7 @@ struct RegisterResponseDto: Codable {
 
 
 enum Role: String, Codable, CaseIterable {
-	case parent = "Parent" /// default
-	case teacher = "Teacher"
-	case student = "Student"
+	case parent = "parent" /// default
+	case teacher = "teacher"
+	case student = "student"
 }

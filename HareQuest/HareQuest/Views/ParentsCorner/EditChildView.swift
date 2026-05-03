@@ -34,7 +34,7 @@ struct EditChildView: View {
 			VStack {
                 Text("Class").font(.system(size: 28, weight: .semibold, design: .rounded))
 				Picker("Role", selection: $child.classGroup) {
-					ForEach(ParentsCornerController.ChildClass.allCases, id: \.self) { role in
+					ForEach(ChildClass.allCases, id: \.self) { role in
 								Text(role.rawValue)
 						}
 				}.buttonStyle(.bordered)
@@ -58,6 +58,6 @@ struct EditChildView: View {
 #Preview {
     EditChildView(
         controller: ParentsCornerController(),
-        child: Student(id: UUID(), name: "Test", classGroup: .first)
+				child: Student(id: UUID(), name: "Test", classLevel: .first, hasClass: true)
     )
 }
