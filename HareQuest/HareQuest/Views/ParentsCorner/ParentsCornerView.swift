@@ -40,37 +40,41 @@ struct ParentsCornerView: View {
                             Image(systemName: "plus")
                         }.buttonStyle(DefaultButtonStyle())
                     }
-                    VStack{
-                        //This  goes in the for each loop
-                        KidCard(
-                            
-                            studentName: "Maya",
-                            studentLastName: "O'connor",
-                            year: "Year 1-2",
-                            gradedBy: "Victoria McNeil",
-                            grade: 9,
-                            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
-                        ).padding(.bottom)
-                        
-                        KidCard(
-                            
-                            studentName: "Oisin",
-                            studentLastName: "O'connor",
-                            year: "Year 1-2",
-                            gradedBy: "Victoria McNeil",
-                            grade: 9,
-                            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
-                        )
-                    }.padding()
+//                    VStack{
+//                        //This  goes in the for each loop
+//                        KidCard(
+//                            
+//                            studentName: "Maya",
+//                            studentLastName: "O'connor",
+//                            year: "Year 1-2",
+//                            gradedBy: "Victoria McNeil",
+//                            grade: 9,
+//                            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
+//                        ).padding(.bottom)
+//                        
+//                        KidCard(
+//                            
+//                            studentName: "Oisin",
+//                            studentLastName: "O'connor",
+//                            year: "Year 1-2",
+//                            gradedBy: "Victoria McNeil",
+//                            grade: 9,
+//                            comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
+//                        )
+//                    }.padding()
                     if children.isEmpty == false {
                         List {
                             ForEach(children) { child in
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 15)
-                                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                            .background(Color.white.cornerRadius(15))
-                                    
-                                    Text(child.name).bold()
+																	KidCard(
+																			
+																			studentName: child.name,
+																			studentLastName: "",
+																			year: child.classLevel.rawValue,
+																			gradedBy: "Victoria McNeil",
+																			grade: 9,
+																			comments: "Maya achieves average results and can produce solid work when focused, but their behaviour is ..."
+																	).padding(.bottom)
         
                                 }
                                 .frame(width: 350, height: 100)
@@ -110,7 +114,6 @@ struct ParentsCornerView: View {
                 .navigationBarHidden(true)
                
         } .ignoresSafeArea(.all)
-
 	}
 	
 }
