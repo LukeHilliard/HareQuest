@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Database;
 using API.Dtos;
-using API.Dtos.ClassGroups;
+using API.Dtos.ClassGroup;
 using API.Models;
 
 namespace API.Controllers
@@ -75,6 +75,41 @@ namespace API.Controllers
           });
         }
 
+        [HttpPost("joinClass")]
+        public async Task<ActionResult<ClassGroupJoinDto>> JoinClassGroup(ClassGroupJoinDto joinRequest)
+        {
+          Console.WriteLine("Joining ClassGroup");
+          var classToJoin = await _context.ClassGroups.FirstOrDefaultAsync(c => c.ClassCode == joinRequest.ClassCode);
+          
+          if (classToJoin == null)
+            return NotFound(new
+            {
+              message = "Class code not found.",
+              success = false,
+              status = 401,
+              classGroupId = "0"
+            });
+
+
+          if (classToJoin.ClassLevel != joinRequest.ClassLevel)
+            return NotFound(new
+            {
+              message = $"Your child is not in {classToJoin.ClassLevel} class.",
+              success = false,
+              status = 401,
+              classGroupId = "0"
+            });
+          
+          // TODO: Add student id to ClassStudents table, should return success = true to trigger iOS SwiftData update for teacher
+
+          return Ok(new
+          {
+            message = "Successfully joined class",
+            success = true,
+            status = 200,
+            classGroupId = classToJoin.Id
+          });
+        }
         // GET: api/ClassGroups
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClassGroups>>> GetClassGroup()

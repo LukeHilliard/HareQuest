@@ -20,8 +20,5 @@ namespace API.Database
         .HasIndex(u => u.Email)
         .IsUnique();
     }
-      public DbSet<API.Models.ParentChild> ParentChild { get; set; } = default!;
-      public DbSet<API.Models.ClassGroups> ClassGroup { get; set; } = default!;
-
   }
 }

@@ -19,7 +19,6 @@ struct HomeView: View {
             
 			if let identifier = controller.sessionManager.identifier {
 			 //Text(identifier.uuidString)
-                
 				TabView(selection: $controller.selectedTab) {
 					Tab("Parent's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.parentsCorner) { ParentsCornerView() }
 					Tab("Activities", systemImage: "map.fill", value: HomeController.HomeTabs.activities) {
@@ -32,6 +31,7 @@ struct HomeView: View {
 			
 		case "teacher":
 			if let identifier = controller.sessionManager.identifier {
+
 				//Text(identifier.uuidString)
 				TabView(selection: $controller.selectedTab) {
 					Tab("Teacher's Corner", systemImage: "person.3.fill", value: HomeController.HomeTabs.teachersCorner) { TeachersCornerView(teacherId: identifier) }
