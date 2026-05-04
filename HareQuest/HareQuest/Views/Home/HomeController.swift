@@ -19,17 +19,29 @@ class HomeController: ObservableObject {
 		case profile = 2
 		case teachersCorner = 3
 	}
+	/// Routes
+	enum ParentRoute: Hashable {
+		case hareobics
+	}
 	
 	private let keychain = KeychainSwift()
 	
 	@Published var selectedTab: HomeTabs = .activities
 	@Published var sessionManager = SessionManager.shared
 	@Published var role: String? = nil
+	@Published var name: String? = nil
+	@Published var currentRoute: ParentRoute?
 	
 	init() {
 		self.role = self.keychain.get("hq_role")
+		self.name = self.keychain.get("hq_name")
 	}
 	
+	
+			
+	func openGameScreen() {
+		currentRoute = .hareobics
+	}
 	
 	
 }

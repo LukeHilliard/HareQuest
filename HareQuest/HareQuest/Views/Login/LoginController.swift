@@ -53,6 +53,9 @@ class LoginController: ObservableObject {
 					if let role = loginResponse.role {
 						sessionManager.setRole(role: role)
 					}
+					if let name = loginResponse.name {
+						sessionManager.setName(name: name)
+					}
 					sessionManager.isAuth = true
 					openHomeView()
 				}

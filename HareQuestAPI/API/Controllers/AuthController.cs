@@ -131,7 +131,8 @@ namespace API.Controllers
         userId = user.Id,
         role = user.Role,
         message = $"User {user.Id} Logged In",
-        success = true
+        success = true,
+        name = user.Name,
       });
     }
     
