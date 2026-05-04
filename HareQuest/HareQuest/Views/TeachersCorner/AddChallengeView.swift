@@ -9,9 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct AddChallengeView: View {
-		@StateObject private var controller = TeachersCornerController()
+	  @ObservedObject var controller: TeachersCornerController
     @Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
     @Environment(\.modelContext) var modelContext
+	@State private var addedChallange: Bool = false
     var body: some View {
 			Header(title: "Physical Challenges", backgroundColor: .secondaryButton)
         VStack(spacing: 16) {
@@ -48,17 +49,18 @@ struct AddChallengeView: View {
                     dismiss()
                 }.buttonStyle(ReturnButtonStyle())
                 Button("Add Challenge") {
-									print("HERE1")
+
 									modelContext.insert(Challenges(id: UUID(), classGroupId: UUID(), name: controller.challengeName, reward: Int(controller.challengeReward) ?? 0))
-									print("HERE2")
+									addedChallange = true
                 }.buttonStyle(CreateButtonStyle())
             }
             Spacer()
         }.padding()
         .navigationBarBackButtonHidden(true)
+				
     }
 }
 
 #Preview {
-    AddChallengeView()
+	AddChallengeView(controller: TeachersCornerController())
 }

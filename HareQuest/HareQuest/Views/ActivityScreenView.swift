@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ActivityScreenView: View {
+	@Environment(\.modelContext) private var modelContext
 	@StateObject var controller = TeachersCornerController()
 	@Query(sort: \Challenges.name, order: .forward) var challenges: [Challenges]
 	
@@ -19,6 +20,11 @@ struct ActivityScreenView: View {
 				Text("Challenges")
 					.font(.system(size: 36, weight: .semibold, design: .none))
 					.padding(.top)
+				if challenges.isEmpty == false {
+						NavigationLink(destination: AddChallengeView(controller: controller)) {
+								Image(systemName: "plus")
+						}.buttonStyle(PlainButtonStyle())
+				}
 			}
 			
 			/// Horizontal line
@@ -30,24 +36,30 @@ struct ActivityScreenView: View {
 			if challenges.isEmpty == false {
 				List {
 					ForEach(challenges) { challenge in
-							Button(challenge.name) {}
-							.buttonStyle(ChallengeButton(coinsGain: challenge.reward))
-						
-							.listRowSeparator(.hidden)
-							.listRowBackground(Color.clear)
+						Button(challenge.name) {}
+						.buttonStyle(ChallengeButton(coinsGain: challenge.reward))
+						.listRowSeparator(.hidden)
+						.listRowBackground(Color.clear)
+						.swipeActions(edge: .trailing, allowsFullSwipe: true) {
+								Button(role: .destructive) {
+										modelContext.delete(challenge) // Now this will work!
+								} label: {
+										Label("Delete", systemImage: "trash")
+								}
+						}
+						.swipeActions(edge: .leading) {
+								NavigationLink(destination: EditChallengeView(controller: controller, challenge: challenge)) {
+										Label("Edit", systemImage: "pencil")
+								}
+								.tint(.blue)
+						}
 					}
 			}
 			.listStyle(.plain)
 				
-//				VStack{
-//					Button("Jump"){}.buttonStyle(ChallengeButton( coinsGain: 4))
-//					Button("Play a football match with your friends"){}.buttonStyle(ChallengeButton( coinsGain: 100))
-//					Button("Do 10 Jumping Jacks"){}.buttonStyle(ChallengeButton( coinsGain: 10))
-//					Button("Jump"){}.buttonStyle(ChallengeButton( coinsGain: 4))
-//				}
 			} else {
 				
-				NavigationLink(destination: AddChallengeView()){
+				NavigationLink(destination: AddChallengeView(controller: controller)){
 					Text("Add Challenge")
 					
 				}.buttonStyle(CreateButtonStyle())

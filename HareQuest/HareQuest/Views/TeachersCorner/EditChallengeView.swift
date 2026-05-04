@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct EditChallengeView: View {
-    @ObservedObject var controller: ParentsCornerController
+    @ObservedObject var controller: TeachersCornerController
     @Environment(\.dismiss) var dismiss /// Access NavigationStack built in function 'dismiss'
     @Environment(\.modelContext) private var modelContext
     
-    @State var child: Student
+    @State var challenge: Challenges
     
     
     var body: some View {
@@ -21,7 +21,7 @@ struct EditChallengeView: View {
             VStack {
                 Text("Challenge")
                     .font(.system(size: 28, weight: .semibold, design: .rounded))
-                TextField("Name", text: $child.name)
+							TextField("Name", text: $challenge.name)
                     .font(.title3)
                     .fontWeight(.regular)
                     .padding()
@@ -33,7 +33,7 @@ struct EditChallengeView: View {
             }
             VStack {
                 Text("Coins Worth").font(.system(size: 28, weight: .semibold, design: .rounded))
-                TextField("Name", text: $child.name)
+								TextField("Reward", value: $challenge.reward, format: .number)
                     .font(.title3)
                     .fontWeight(.regular)
                     .padding()
@@ -61,7 +61,7 @@ struct EditChallengeView: View {
 
 #Preview {
     EditChallengeView(
-        controller: ParentsCornerController(),
-				child: Student(id: UUID(), name: "100", classLevel: .first, hasClass: false)
+        controller: TeachersCornerController(),
+				challenge: Challenges(id: UUID(), classGroupId: UUID(), name: "Some Challange", reward: 100)
     )
 }
