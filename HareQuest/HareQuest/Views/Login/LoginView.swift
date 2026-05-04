@@ -50,7 +50,7 @@ struct LoginView: View {
 				VStack {
 					Button("Login") {
 						Task {
-							try await controller.login()
+							try await controller.login(email: controller.email, password: controller.password)
 						}
 					}.buttonStyle(DefaultButtonStyle())
 					

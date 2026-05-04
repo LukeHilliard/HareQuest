@@ -18,7 +18,7 @@ struct TeachersCornerView: View {
 		self.teacherId = teacherId
 		_classGroups = Query(filter: #Predicate<ClassGroup> { groups in
 				groups.teacherId == teacherId
-		}, sort: \.classLevel.rawValue)
+		}, sort: \.classCode)
 	}
 
     var body: some View {
@@ -30,7 +30,6 @@ struct TeachersCornerView: View {
 										.font(.system(size: 28, weight: .bold, design: .rounded))
 						if classGroups.isEmpty == false {
 								NavigationLink(destination: AddClassView(controller: controller)) {
-										Text("Add Class")
 										Image(systemName: "plus")
 								}.buttonStyle(PlainButtonStyle())
 						}

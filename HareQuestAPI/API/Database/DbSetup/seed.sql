@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Challenges;
 DROP TABLE IF EXISTS ClassStudents;
 DROP TABLE IF EXISTS ClassGroups;
 DROP TABLE IF EXISTS ShopItem;
@@ -26,6 +27,17 @@ CREATE TABLE ClassGroups
     PRIMARY KEY (Id),
     FOREIGN KEY (TeacherId) REFERENCES Users (Id)
 
+);
+
+CREATE TABLE Challenges
+(
+    Id           CHAR(36)     NOT NULL,
+    ClassGroupId CHAR(36)     NOT NULL,
+    Name         VARCHAR(100) NOT NULL,
+    Reward       INT          NOT NULL,
+
+    PRIMARY KEY (Id),
+    FOREIGN KEY (ClassGroupId) REFERENCES ClassGroups (Id)
 );
 
 CREATE TABLE ClassStudents

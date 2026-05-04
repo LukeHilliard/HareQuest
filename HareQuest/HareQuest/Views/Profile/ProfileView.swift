@@ -13,7 +13,7 @@ struct ProfileView: View {
     var body: some View {
         VStack()
         {
-					Text(controller.sessionManager.getRole() ?? "No Role") // TODO fit actual role or name
+					Text(controller.sessionManager.getRole()?.capitalized ?? "No Role") // TODO fit actual role or name
                 .font(.system(size: 78, weight: .heavy, design: .rounded))
                 .foregroundColor(.black.opacity(0.85))
                 .padding(.vertical)

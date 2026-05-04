@@ -35,7 +35,7 @@ class LoginController: ObservableObject {
 	func openHomeView() { currentRoute = .home }
 	func openLandingView() { currentRoute = .landing }
 	
-	func login() async throws -> Void {
+	func login(email: String, password: String) async throws -> Void {
 		let loginDetails = LoginDto(email: email, password: password)
 		
 		do {
@@ -52,6 +52,9 @@ class LoginController: ObservableObject {
 					sessionManager.identifier = userId
 					if let role = loginResponse.role {
 						sessionManager.setRole(role: role)
+					}
+					if let name = loginResponse.name {
+						sessionManager.setName(name: name)
 					}
 					sessionManager.isAuth = true
 					openHomeView()

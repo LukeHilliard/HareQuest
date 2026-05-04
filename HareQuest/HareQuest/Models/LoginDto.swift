@@ -18,7 +18,9 @@ struct LoginResponseDto: Codable {
 	let status: Int
 	let success: Bool
 	let message: String
+	let name: String?
 	let accessToken: String?
 	let role: String?
 	let userId: UUID?
+	
 }

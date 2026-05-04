@@ -55,9 +55,19 @@ final class SessionManager: ObservableObject {
 		}
 		return nil
 	}
-	
+	func setName(name: String) {
+		keychain.set(name, forKey: "hq_name")
+	}
 	func setRole(role: String) {
 		keychain.set(role, forKey: "hq_role")
+	}
+	
+	func getName() -> String? {
+		if let name = keychain.get("hq_name") {
+			return name
+		}
+		return nil
+		
 	}
 	
 	func getRole() -> String? {
