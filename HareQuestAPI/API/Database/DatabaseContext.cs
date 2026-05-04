@@ -6,8 +6,7 @@ namespace API.Database
   {
 
     public DbSet<User> Users {get; set;}
-    public DbSet<ParentChild> ParentChildren {get; set;}
-    
+    public DbSet<ClassStudents> ClassStudents {get; set;}
     public DbSet<ClassGroups> ClassGroups {get; set;}
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)

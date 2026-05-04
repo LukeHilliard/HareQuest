@@ -63,7 +63,7 @@ class ClassGroupsService {
 		/// Make request and decode to reponse object
 		let (data, _) = try await session.data(for: request)
 		let response = try JSONDecoder().decode(JoinClassResponse.self, from: data)
-
+		print(response)
 		guard response.success == true else {
 			throw NSError(domain: "ClassGroups", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.message])
 		}

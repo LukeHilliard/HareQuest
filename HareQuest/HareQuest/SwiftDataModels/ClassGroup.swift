@@ -15,13 +15,13 @@ final class ClassGroup {
 	var teacherId: UUID
 	var name: String
 	var classCode: String
-	var classLevel: String
+	var classLevel: ChildClass
 	
 	var students: [Student]?
 	
 
 	
-	init(id: UUID, teacherId: UUID, name: String, classCode: String, classLevel: String, students: [Student]?) {
+	init(id: UUID, teacherId: UUID, name: String, classCode: String, classLevel: ChildClass, students: [Student]?) {
 		self.id = id
 		self.teacherId = teacherId
 		self.name = name

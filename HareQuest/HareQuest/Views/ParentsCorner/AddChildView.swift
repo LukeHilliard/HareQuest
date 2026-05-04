@@ -70,8 +70,13 @@ struct AddChildView: View {
 						dismiss()
 					}.buttonStyle(ReturnButtonStyle())
 					Button("Join Class") {
+						Task {
+							try await controller.joinClass(studentName: controller.childName, modelContext: modelContext)
+							joinedClass = true
+						}
+						
 						//						modelContext.insert(Student(id: UUID(), name: controller.childName, classLevel: controller.childClass, hasClass: false))
-						joinedClass = true
+						
 					}.buttonStyle(CreateButtonStyle())
 				}
 				

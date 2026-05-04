@@ -18,7 +18,7 @@ struct TeachersCornerView: View {
 		self.teacherId = teacherId
 		_classGroups = Query(filter: #Predicate<ClassGroup> { groups in
 				groups.teacherId == teacherId
-		}, sort: \.classLevel)
+		}, sort: \.classLevel.rawValue)
 	}
 
     var body: some View {
@@ -42,7 +42,7 @@ struct TeachersCornerView: View {
 											ForEach(classGroups) { classGroup in
 												NavigationLink(destination: StudentsView(classGroup: classGroup)) {
 													ZStack {
-														ClassCard(className: classGroup.name, classLevel: classGroup.classLevel, classCode: classGroup.classCode, statusColor: Color.accentColor)
+														ClassCard(className: classGroup.name, classLevel: classGroup.classLevel.rawValue, classCode: classGroup.classCode, statusColor: Color.accentColor)
 													}
 													.frame(width: 350, height: 100)
 													.listRowSeparator(.hidden)

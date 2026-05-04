@@ -47,7 +47,7 @@ struct AddChallengeView: View {
                     dismiss()
                 }.buttonStyle(ReturnButtonStyle())
                 Button("Add Challenge") {
-                    modelContext.insert(Student(id: UUID(), name: controller.childName, classGroup: controller.childClass))
+//									modelContext.insert(Student(id: UUID(), name: controller.childName, classLevel: controller.childClass, hasClass: ))
                 }.buttonStyle(CreateButtonStyle())
             }
             Spacer()

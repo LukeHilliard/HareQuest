@@ -34,7 +34,7 @@ class ParentsCornerController: ObservableObject {
 	
 	func openAddChildView() { currentRoute = .addChild }
 	
-	func joinClass(studentId: UUID, modelContext: ModelContext) async throws -> Void {
+	func joinClass(studentName: String, modelContext: ModelContext) async throws -> Void {
 //		print("STUDENT ID \(studentId)")
 
 		// Retrieve the parent ID from the session. If unavailable, log and return.
@@ -42,12 +42,12 @@ class ParentsCornerController: ObservableObject {
 			print("Error: No valid parent identifier in session.")
 			return
 		}
-
+		print(studentName)
 		let joinDetails = JoinClassDto(
 			classCode: self.childClassCode,
 			classLevel: self.childClass,
 			parentId: parentId,
-			studentId: studentId
+			studentName: studentName
 		)
 		
 		do {
@@ -56,33 +56,32 @@ class ParentsCornerController: ObservableObject {
 			case true:
 				print(joinResponse.message)
 				do {
-
 					let descriptor = FetchDescriptor<ClassGroup>(predicate: #Predicate { $0.id == joinResponse.classGroupId })
-					_ = try modelContext.fetch(descriptor)
-					
-					// TODO: Get ClassGroup details and add to local storage
+					let classToJoin = try modelContext.fetch(descriptor)
+					if let joinedGroups = classToJoin.first {
+						let classStudent = ClassStudents(
+							id: UUID(),
+							parentId: parentId,
+							teacherId: joinResponse.teacherId,
+							studentName: studentName,
+							classCode: joinedGroups.classCode,
+							classLevel: joinedGroups.classLevel,
+							classGroup: joinedGroups,
+						)
+						
+						
+					} else {
+						print("Group not found in local storage.")
+					}
 				} catch {
 					print("Error updating Students ClassGroup")
 				}
-				
 			case false:
 				print(joinResponse.message)
 			}
 		} catch {
 			print("Error: \(error)")
 		}
-
-//		do {
-//			let joinResponse = try await classGroupService.joinClassGroup(joinDetails: joinDetails)
-//			switch joinResponse.success {
-//			case true:
-//				print(joinResponse.message)
-//			case false:
-//				print(joinResponse.message)
-//			}
-//		} catch {
-//			print("Error: \(error)")
-//		}
 	}
 }
 

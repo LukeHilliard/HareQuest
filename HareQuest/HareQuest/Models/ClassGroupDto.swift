@@ -28,7 +28,7 @@ struct ClassGroupResponse: Codable {
 	let teacherId: UUID
 	let name: String
 	let classCode: String
-	let classLevel: String
+	let classLevel: ChildClass
 	let students: [ClassStudent]?
 }
 
