@@ -27,12 +27,15 @@ final class TeachersCornerController: ObservableObject {
 		case fifth = "5th"
 		case sixth = "6th"
 	}
-	
+
 	
 	@Published var name: String = ""
 	@Published var classLevel: ClassLevel = .first
 	
-	init() {}
+	
+	@Published var challengeName: String = ""
+	@Published var challengeReward: String = ""
+
 	
 	/// Services
 	let classGroupsService = ClassGroupsService.shared
@@ -69,6 +72,11 @@ final class TeachersCornerController: ObservableObject {
 		} else {
 			throw NSError(domain: "ClassGroups", code: classGroupResponse.status, userInfo: [NSLocalizedDescriptionKey: classGroupResponse.message])
 		}
+		
+	}
+	
+	func addChallenge() async throws -> Void {
+		
 		
 	}
 	

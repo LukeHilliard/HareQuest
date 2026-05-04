@@ -19,5 +19,6 @@ namespace API.Database
         .HasIndex(u => u.Email)
         .IsUnique();
     }
+      public DbSet<API.Models.Challenges> Challenges { get; set; } = default!;
   }
 }

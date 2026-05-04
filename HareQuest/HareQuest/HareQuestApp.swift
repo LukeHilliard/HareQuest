@@ -14,7 +14,8 @@ struct HareQuestApp: App {
         let schema = Schema([
 					User.self,
 					Student.self,
-					ClassGroup.self
+					ClassGroup.self,
+					Challenges.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

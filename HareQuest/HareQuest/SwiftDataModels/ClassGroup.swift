@@ -30,3 +30,4 @@ final class ClassGroup {
 		self.students = students
 	}
 }
+
