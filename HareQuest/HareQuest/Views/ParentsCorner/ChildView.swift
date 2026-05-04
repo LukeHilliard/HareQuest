@@ -28,7 +28,7 @@ struct ChildView: View {
 						.autocapitalization(.none)
 					Button("Join") {
 						Task {
-							try await controller.joinClass(studentId: student.id, modelContext: modelContext)
+							try await controller.joinClass(studentName: student.name, modelContext: modelContext)
 						}
 					}
 				}

@@ -99,16 +99,42 @@ namespace API.Controllers
               status = 401,
               classGroupId = "0"
             });
-          
-          // TODO: Add student id to ClassStudents table, should return success = true to trigger iOS SwiftData update for teacher
 
-          return Ok(new
+          // TODO: Add student id to ClassStudents table, should return success = true to trigger iOS SwiftData update for teache
+          try
           {
-            message = "Successfully joined class",
-            success = true,
-            status = 200,
-            classGroupId = classToJoin.Id
-          });
+            var student = new ClassStudents
+            {
+              Id = Guid.NewGuid(),
+              ParentId = joinRequest.ParentId,
+              TeacherId = classToJoin.TeacherId,
+              ClassId = classToJoin.Id,
+              ClassCode = classToJoin.ClassCode,
+              ClassLevel = classToJoin.ClassLevel,
+              StudentName = joinRequest.StudentName
+            };
+            _context.ClassStudents.Add(student);
+            await _context.SaveChangesAsync();
+            return Ok(new
+            {
+              message = "Successfully joined class",
+              success = true,
+              status = 200,
+              classGroupId = classToJoin.Id,
+              teacherId = classToJoin.TeacherId
+            });
+          }
+          catch (Exception ex)
+          {
+            return NotFound(new
+            {
+              message = $"Could not add child to class {classToJoin.ClassCode}.",
+              success = false,
+              status = 500,
+              classGroupId = "0"
+            });
+          }
+          
         }
         // GET: api/ClassGroups
         [HttpGet]

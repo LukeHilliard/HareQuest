@@ -34,9 +34,9 @@ struct ActivityScreenView: View {
                 }.buttonStyle(CreateButtonStyle())
                     .padding(.top)
                 //for each loop
-                VStack{     Button("Jump"){}.buttonStyle(ChallengeButton( coinsGain: 4))
+                VStack{
+										Button("Jump"){}.buttonStyle(ChallengeButton( coinsGain: 4))
                     Button("Play a football match with your friends"){}.buttonStyle(ChallengeButton( coinsGain: 100))
-                    
                     Button("Do 10 Jumping Jacks"){}.buttonStyle(ChallengeButton( coinsGain: 10))
                     Button("Jump"){}.buttonStyle(ChallengeButton( coinsGain: 4))
                 }.padding()

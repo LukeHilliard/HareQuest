@@ -12,7 +12,7 @@ struct JoinClassDto: Codable {
 	let classCode: String
 	let classLevel: ChildClass
 	let parentId: UUID
-	let studentId: UUID
+	let studentName: String
 }
 
 struct JoinClassResponse: Codable {
@@ -20,4 +20,5 @@ struct JoinClassResponse: Codable {
 	let success: Bool
 	let status: Int
 	let classGroupId: UUID
+	let teacherId: UUID
 }

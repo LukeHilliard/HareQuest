@@ -62,6 +62,6 @@ struct EditChallengeView: View {
 #Preview {
     EditChallengeView(
         controller: ParentsCornerController(),
-        child: Student(id: UUID(), name: "100", classGroup: .first)
+				child: Student(id: UUID(), name: "100", classLevel: .first, hasClass: false)
     )
 }

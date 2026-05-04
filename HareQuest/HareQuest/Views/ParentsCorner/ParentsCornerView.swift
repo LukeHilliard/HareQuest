@@ -99,7 +99,7 @@ struct ParentsCornerView: View {
                         .listStyle(.plain)
                         
                     } else {
-                        
+                        Spacer()
                         Text("No children found")
                         NavigationLink(destination: AddChildView(controller: controller)) {
                             Text("Add Child")

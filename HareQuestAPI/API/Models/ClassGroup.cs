@@ -7,7 +7,7 @@ namespace API.Models
     public string Name { get; set; }
     public string ClassCode { get; set; }
     public string ClassLevel { get; set; }
-    public List<ClassStudents>? Students { get; set; }
+    public ICollection<ClassStudents> ClassStudents { get; set; }
     
   }
 }
