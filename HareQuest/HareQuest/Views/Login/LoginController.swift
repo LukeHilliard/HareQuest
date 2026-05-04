@@ -35,7 +35,7 @@ class LoginController: ObservableObject {
 	func openHomeView() { currentRoute = .home }
 	func openLandingView() { currentRoute = .landing }
 	
-	func login() async throws -> Void {
+	func login(email: String, password: String) async throws -> Void {
 		let loginDetails = LoginDto(email: email, password: password)
 		
 		do {

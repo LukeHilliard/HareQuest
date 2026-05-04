@@ -49,7 +49,9 @@ final class RegisterController: ObservableObject {
 		switch registerResponse.success {
 		case true:
 			print(registerResponse)
-			openLoginView()
+			var loginController = LoginController()
+			try await loginController.login(email: email, password: password)
+	
 		case false:
 			print("Register Failed")
 		}
